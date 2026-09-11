@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    Puts DBH's biosolids composter into the same Architect dropdown as the manure composter, so
+    the two sit under one button instead of two adjacent ones that look identical.
+
+    Guarded on the def, not on the mod. PatchOperationFindMod compares the mod's DISPLAY NAME,
+    which is not stable: the installed Fertile Fields calls itself "Fertile Fields 1.6" and would
+    already miss a patch written against "Fertile Fields 1.5". Testing for the def we are about to
+    modify cannot drift, and needs no maintenance when a mod is renamed or continued.
+  -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="BiosolidsComposter"]</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BiosolidsComposter"]</xpath>
+      <value>
+        <designatorDropdown>Nelim_Composters</designatorDropdown>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

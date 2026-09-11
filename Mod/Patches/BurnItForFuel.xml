@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    [JPT] Burn It for Fuel: let its burner stockpile accept dry manure.
+
+    THIS CURRENTLY DOES NOTHING, AND THAT IS EXPECTED. The mod on the Workshop (1823276856,
+    JPT.BurnItForFuel) declares <supportedVersions>1.1, 1.2, 1.3</supportedVersions> and cannot
+    load in 1.6; no continuation of it is installed. The operation is kept because it is guarded
+    on the def rather than on a mod, so it costs nothing while the def is absent and starts
+    working by itself the day a 1.6 continuation appears keeping the BurnItForFuel defName.
+
+    Velcroboy's Manure used PatchOperationFindMod against the display names "[JPT] Burn It for
+    Fuel" and "[JPT] Burn It for Fuel (Continued)". A continuation that renames itself - which is
+    exactly what continuations do - would defeat that. Testing for the def does not care.
+
+    Note the two-step guard: the def can exist without the storage filter having a thingDefs list
+    at all, and PatchOperationAdd on a missing xpath is an error, not a no-op.
+  -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs</xpath>
+      <value>
+        <li>DryManure</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

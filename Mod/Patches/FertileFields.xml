@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+  <!--
+    Fertile Fields' compost chain accepts manure.
+
+    MakeCompost and MakeCompost5 are "make raw compost from organic waste", already taking hay,
+    plant scraps, rotted mush, kibble and pemmican, measured by mass through
+    RFF_Code.IngredientValueGetter_Mass. Manure in either state belongs in that list.
+
+    Both are base Fertile Fields defs in Defs/Recipes_RFF.xml, not patch-created, so they exist
+    whenever Fertile Fields is loaded. Each operation is still conditional on its own target: a
+    PatchOperationSequence stops at the first operation that fails rather than skipping it, so one
+    def going away would silence every later one. Separate operations mean one loss costs one
+    integration.
+
+    DELIBERATELY NOT PATCHED - Make_FertilizerFromBiosolids and its bulk variant. Adding dry manure
+    straight into the biosolids-to-fertilizer recipe would route manure to fertilizer without ever
+    passing through a composter, which is the one thing this mod exists to add. The route is
+    manure -> composter -> biosolids -> Fertile Fields' fertilizer, and it stays that way.
+
+    ALSO NOT PATCHED - Make_Ash2 and Make_Ash12. Velcroboy's Manure fed manure into them, but they
+    are gone from Fertile Fields 1.6: they survive in the mod's 1 through 1.5 folders and appear
+    nowhere in 1.6/Patches/PatchesOtherMods.xml. Nothing left to hook.
+
+    Nothing here needs VGP Garden Tools. The original mod's VGP dependency existed only to fix the
+    dirt defName in its own fertilizer recipes, which this mod does not carry.
+  -->
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs</xpath>
+      <value>
+        <li>Manure</li>
+        <li>DryManure</li>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs</xpath>
+      <value>
+        <li>Manure</li>
+        <li>DryManure</li>
+      </value>
+    </match>
+  </Operation>
+
+  <!--
+    defaultIngredientFilter is what a new bill starts with ticked. Dry manure is offered by
+    default because a colony accumulates it whether or not it wants to; fresh manure is left
+    unticked so a bill does not quietly compete with the composter for the same input.
+  -->
+  <Operation Class="PatchOperationConditional">
+    <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs</xpath>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs</xpath>
+      <value>
+        <li>DryManure</li>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

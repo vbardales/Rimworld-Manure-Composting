@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>ManureComposting</RootNamespace>
+    <AssemblyName>ManureComposting</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\Mod\Assemblies\</OutputPath>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      Dubs Bad Hygiene supplies the two WorkGiver base classes and Building_Composter. Private is
+      false so MSBuild does not copy BadHygiene.dll into Mod/Assemblies/: RimWorld loads every dll
+      it finds there, and a second copy would give two incompatible sets of DBH types in one
+      process. The mod declares DBH as a hard dependency, so the real assembly is always loaded
+      before this one.
+
+      HintPath points into the Workshop install. It is a build-time path only and never ships;
+      anyone rebuilding this from a different install should point it at their own copy.
+    -->
+    <Reference Include="BadHygiene">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\836308268\1.6\Assemblies\BadHygiene.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Manure Composting</name>
+  <author>Nelim</author>
+  <packageId>nelim.manurecomposting</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <url>https://github.com/vbardales/Rimworld-Manure-Composting</url>
+  <description>A companion to Burok's Manure that connects it to Dubs Bad Hygiene. Manure gives animals a digestion need, a drying curve, a smell and dried manure as fuel; it does not touch DBH at all. This adds the building that joins the two, and wires manure into Fertile Fields' compost chain.
+
+WHAT IT ADDS
+
+A manure composter, built from the Hygiene tab and sharing an Architect button with DBH's own biosolids composter. It takes fresh manure and turns it into biosolids - the same fertiliser DBH makes from sewage, and the input Fertile Fields pasteurises into proper fertiliser. A barn full of animals becomes a source of soil rather than a mess to haul away.
+
+There is a real choice in it: fresh manure dries into fuel on its own within about a day, faster in the heat. Composting it means getting it hauled before it dries.
+
+Composting stops in the cold and ruins in the heat, exactly as DBH's composter does - because it is DBH's composter. The building is DubsBadHygiene.Building_Composter configured through DBH's own comp, so progress, the temperature factor, the fill bar, the inspect string and the save format are all DBH's, and the two composters stay in step with anything Dubs changes.
+
+With Fertile Fields installed, its "make raw compost" recipes accept manure, fresh or dried.
+
+WHY IT SHIPS AN ASSEMBLY AT ALL
+
+DBH's composter is already generic - it reads its input and output through two virtual methods Dubs named ThingDefToCompost_PatchMe and ThingDefToProduce_PatchMe. Its two WorkGivers are not: both declare PotentialWorkThingRequest as ThingRequest.ForDef(BiosolidsComposter), so a pawn never sees a second composter however it is defined. The assembly is two classes that override that one property and inherit everything else. It is four kilobytes.
+
+WHAT IT DELIBERATELY DOES NOT DO
+
+It does not add manure to Fertile Fields' biosolids-to-fertiliser recipe. That would take manure to fertiliser without ever passing through a composter, which is the thing this mod exists to add.
+
+It does not add dried manure to fuel filters and does not add a chemfuel recipe. Manure already does both, and repeating them would only produce a second identical entry.
+
+It does not touch Poo Patch. That refines DBH's fecal sludge into chemfuel in Vanilla Furniture Expanded's automated factory; Manure refines dried manure at the vanilla biofuel refinery. Different building, different input, nothing in common.
+
+It redistributes nothing. Every mod it works with is a dependency loaded from your own copy.
+
+COMPATIBILITY
+
+Safe to add to an existing save. Removing it mid-save leaves behind any composters already built; deconstruct them first.
+
+Load after Dubs Bad Hygiene, Manure and Fertile Fields.
+
+IF I GO QUIET
+
+If I do not answer within a reasonable time after being contacted, anyone may freely update this or any other of my mods, including publishing a continuation of it. All credit must be preserved.
+
+AI-GENERATED
+
+This mod was written with Claude Code (Anthropic) under human direction, review and testing. Stated openly: working with these tools is my job.
+
+THANKS
+
+Burok for Manure, which does the simulation this builds on. Dubwise for Dubs Bad Hygiene, whose composter this configures rather than reimplements, and for leaving the extension points open and named. Velcroboy, whose own Manure mod for 1.3 and 1.5 first put a composter and these compatibility patches together - none of its code is used here, but reading it is what pointed at the integrations worth having.</description>
+  <modDependencies>
+    <li>
+      <packageId>Burok.Manure</packageId>
+      <displayName>Manure</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3784198780</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>Dubwise.DubsBadHygiene</packageId>
+      <displayName>Dubs Bad Hygiene</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/836308268</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>Dubwise.DubsBadHygiene</li>
+    <li>Burok.Manure</li>
+    <li>jamaicancastle.RF.fertilefields</li>
+    <li>JPT.BurnItForFuel</li>
+  </loadAfter>
+</ModMetaData>

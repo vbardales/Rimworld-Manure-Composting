@@ -1,0 +1,63 @@
+MIT License
+
+Copyright (c) 2026 nelim
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+---------------------------------------------------------------------------
+SCOPE OF THE ABOVE
+
+The MIT licence above covers everything shipped in this mod, with no carve-out.
+That is not the usual case in this repository, so it is worth saying why it
+holds here: this mod redistributes nothing. No code, no defs, no textures, no
+sounds from any other mod are included.
+
+What ships is:
+
+  - Source/WorkGivers.cs, two classes each overriding one property, written
+    against Dubs Bad Hygiene's public API rather than copied from it
+  - Source/ManureCompostingDefs.cs, a lazy def lookup
+  - the def files and the three patch files, written against the current 1.6
+    defs of each target
+  - the packaging and the documentation
+
+THE MODS IT DEPENDS ON ARE NOT INCLUDED IN IT. Dubs Bad Hygiene supplies
+Building_Composter, CompProperties_Composter, the composter jobs, the
+Biosolids item and the composter texture; Burok's Manure supplies the Manure
+and DryManure items and the whole simulation behind them. Both are hard
+dependencies, loaded at runtime from the player's own copy. The composter here
+is a def that points at DBH's class and at DBH's texture path - it is DBH's
+code running on our def, not a copy of DBH.
+
+VELCROBOY'S MANURE IS ACKNOWLEDGED, NOT PORTED.
+
+  https://steamcommunity.com/sharedfiles/filedetails/?id=3252954927
+
+That mod (1.3 and 1.5, last updated 2025-01-18) is where the idea of a manure
+composter and the list of integrations worth having came from, and it is
+credited for that in the About and in ATTRIBUTION.md. None of its code, defs,
+textures or strings are here, so its own undeclared licence, and the fact that
+its Credit.txt says most of its code came from Dubs Bad Hygiene, do not reach
+this mod.
+
+If Burok or Dubwise would rather this mod did not exist against theirs, say so
+and it comes down. Immediately, and without discussion.
+
+ATTRIBUTION.md records what each dependency supplies and what was written here.

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    Priorities match Dubs Bad Hygiene's own composter WorkGivers (FillComposter 19,
+    UnloadComposter 20), so a manure composter and a biosolids composter compete on equal terms
+    rather than one always winning.
+
+    The jobs themselves are DBH's: JobDriver_LoadComposter and JobDriver_UnloadComposter touch
+    nothing but Building_Composter's public surface - SpaceLeftForCompostingMaterial, AddMaterial,
+    Fermented, TakeOutBeer - so they drive this building unchanged. Only the scan needed replacing.
+    (The barrel vocabulary is DBH's: its composter descends from the vanilla fermenting barrel and
+    kept the names.)
+  -->
+
+  <WorkGiverDef MayRequire="Dubwise.DubsBadHygiene,Burok.Manure" DBHLite="true">
+    <defName>Nelim_FillManureComposter</defName>
+    <label>fill manure composter</label>
+    <giverClass>ManureComposting.WorkGiver_FillManureComposter</giverClass>
+    <workType>Hauling</workType>
+    <verb>fill</verb>
+    <gerund>filling</gerund>
+    <priorityInType>19</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+  <WorkGiverDef MayRequire="Dubwise.DubsBadHygiene,Burok.Manure" DBHLite="true">
+    <defName>Nelim_UnloadManureComposter</defName>
+    <label>take compost out of manure composter</label>
+    <giverClass>ManureComposting.WorkGiver_UnloadManureComposter</giverClass>
+    <workType>Hauling</workType>
+    <verb>take compost</verb>
+    <gerund>taking compost from</gerund>
+    <priorityInType>20</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+
+</Defs>

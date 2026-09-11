@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--
+    The building is Dubs Bad Hygiene's own Building_Composter, configured through its own
+    CompProperties_Composter. Nothing about the composting loop is reimplemented here: progress,
+    the temperature speed factor, the fill bar, the inspect string and the save format all come
+    from DBH. Building_Composter reads its input and output through two virtual methods that DBH
+    named ThingDefToCompost_PatchMe and ThingDefToProduce_PatchMe, and both return the comp's
+    Material and Product, so a second composter needs no code at all.
+
+    What DBH does not generalise is the pair of WorkGivers: both declare
+    PotentialWorkThingRequest as ThingRequest.ForDef(DubDef.BiosolidsComposter), so a pawn never
+    sees any composter but that one. That single property is what Source/ overrides, and it is
+    the entire reason this mod ships an assembly.
+  -->
+
+  <DesignatorDropdownGroupDef>
+    <defName>Nelim_Composters</defName>
+    <label>composters</label>
+  </DesignatorDropdownGroupDef>
+
+  <ThingDef ParentName="BuildingBase" MayRequire="Dubwise.DubsBadHygiene,Burok.Manure" DBHLite="true">
+    <defName>Nelim_ManureComposter</defName>
+    <label>manure composter</label>
+    <description>A composter for turning fresh animal manure into biosolids. Manure that would otherwise dry into fuel is broken down into the same fertiliser sewage produces, which makes a barn worth of animals a source of soil rather than a mess to haul away.\n\nComposting stops in the cold and ruins in the heat, so keep it somewhere temperate.</description>
+    <thingClass>DubsBadHygiene.Building_Composter</thingClass>
+    <designatorDropdown>Nelim_Composters</designatorDropdown>
+    <!--
+      DBH's own composter texture, referenced by path. DBH is a hard dependency and its textures
+      are loaded, so this resolves; nothing is copied into this mod.
+    -->
+    <graphicData>
+      <texPath>DBH/Things/Building/Sewage/Composter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <rect>(0.05,0.1,0.9,0.9)</rect>
+      </damageData>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsHygiene</li>
+    </thingCategories>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.45</fillPercent>
+    <pathCost>60</pathCost>
+    <statBases>
+      <WorkToBuild>600</WorkToBuild>
+      <Mass>10</Mass>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costList>
+      <Steel>45</Steel>
+    </costList>
+    <comps>
+      <li Class="DubsBadHygiene.CompProperties_Composter">
+        <Material>Manure</Material>
+        <Product>Biosolids</Product>
+      </li>
+      <li Class="CompProperties_TemperatureRuinable">
+        <minSafeTemperature>-20</minSafeTemperature>
+        <maxSafeTemperature>60</maxSafeTemperature>
+        <progressPerDegreePerTick>0.00001</progressPerDegreePerTick>
+      </li>
+      <li Class="CompProperties_Forbiddable"/>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <rotatable>false</rotatable>
+    <constructEffect>ConstructWood</constructEffect>
+    <designationCategory>Hygiene</designationCategory>
+    <!--
+      Same gate DBH puts on its own biosolids composter. "dbhlitemode" is not a real packageId
+      and is never active, so this <li> is always stripped and the building needs no research -
+      exactly as DBH's composter behaves. The marker is kept so the two stay in step if DBH ever
+      makes the gate real in its Lite build.
+    -->
+    <researchPrerequisites>
+      <li MayRequire="dbhlitemode">SewageSludgeComposting</li>
+    </researchPrerequisites>
+    <drawerType>MapMeshAndRealTime</drawerType>
+  </ThingDef>
+
+</Defs>
