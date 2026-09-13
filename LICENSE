@@ -36,6 +36,8 @@ What ships is:
   - Source/ManureCompostingDefs.cs, a lazy def lookup
   - the def files and the three patch files, written against the current 1.6
     defs of each target
+  - Source/Building_ManureComposter.cs, an original text-only adapter
+  - original translation resources and generated artwork
   - the packaging and the documentation
 
 THE MODS IT DEPENDS ON ARE NOT INCLUDED IN IT. Dubs Bad Hygiene supplies

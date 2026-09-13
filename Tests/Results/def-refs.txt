@@ -1,0 +1,25 @@
+Champs de reference lus dans l'assemblage : 1186 balises (28 ecrites a la main), 22 typees
+Lecture des defs du jeu (C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data)...
+Lecture des defs du mod (C:\Users\nelim\Documents\rimworld\ManureComposting\Mod)...
+Lecture des defs de dependance (C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\836308268\1.6)...
+Lecture des defs de dependance (C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\3784198780)...
+Lecture des defs de dependance (C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\3225843229\Defs)...
+Lecture des defs de dependance (C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\3225843229\1.6)...
+
+=== C:\Users\nelim\Documents\rimworld\ManureComposting\Mod ===
+defs du mod : 4   parents du mod : 0
+-- tous les XML sont bien formes --
+-- aucune reference de def introuvable --
+-- toutes les references pointent sur le bon type de def --
+-- tous les ParentName sont resolus --
+
+-- Class= utilisees (verifier a la main si elles viennent d'un mod) --
+  CompProperties_Forbiddable                 Defs\ThingDefs_Buildings\ManureComposter.xml
+  CompProperties_TemperatureRuinable         Defs\ThingDefs_Buildings\ManureComposter.xml
+  DubsBadHygiene.CompProperties_Composter    Defs\ThingDefs_Buildings\ManureComposter.xml
+  PatchOperationAdd                          Patches\BurnItForFuel.xml
+  PatchOperationAdd                          Patches\DubsBadHygiene.xml
+  PatchOperationAdd                          Patches\FertileFields.xml
+  PatchOperationConditional                  Patches\BurnItForFuel.xml
+  PatchOperationConditional                  Patches\DubsBadHygiene.xml
+  PatchOperationConditional                  Patches\FertileFields.xml

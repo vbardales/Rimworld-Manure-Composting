@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <MC_ContainsManure>Contient du fumier : {0}/{1}</MC_ContainsManure>
+  <MC_DebugFinishComposting>Débogage : terminer le compostage</MC_DebugFinishComposting>
+</LanguageData>

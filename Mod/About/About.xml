@@ -15,13 +15,13 @@ A manure composter, built from the Hygiene tab and sharing an Architect button w
 
 There is a real choice in it: fresh manure dries into fuel on its own within about a day, faster in the heat. Composting it means getting it hauled before it dries.
 
-Composting stops in the cold and ruins in the heat, exactly as DBH's composter does - because it is DBH's composter. The building is DubsBadHygiene.Building_Composter configured through DBH's own comp, so progress, the temperature factor, the fill bar, the inspect string and the save format are all DBH's, and the two composters stay in step with anything Dubs changes.
+Cold slows composting and extreme temperatures can ruin the contents, just as with DBH's composter. The building inherits DBH's composting, temperature, fill-bar and save behavior; a small text adapter correctly identifies manure and translates the development control.
 
 With Fertile Fields installed, its "make raw compost" recipes accept manure, fresh or dried.
 
 WHY IT SHIPS AN ASSEMBLY AT ALL
 
-DBH's composter is already generic - it reads its input and output through two virtual methods Dubs named ThingDefToCompost_PatchMe and ThingDefToProduce_PatchMe. Its two WorkGivers are not: both declare PotentialWorkThingRequest as ThingRequest.ForDef(BiosolidsComposter), so a pawn never sees a second composter however it is defined. The assembly is two classes that override that one property and inherit everything else. It is four kilobytes.
+DBH's composter is already generic - it reads its input and output through two virtual methods Dubs named ThingDefToCompost_PatchMe and ThingDefToProduce_PatchMe. Its two WorkGivers are not: both declare PotentialWorkThingRequest as ThingRequest.ForDef(BiosolidsComposter), so a pawn never sees a second composter however it is defined. Two WorkGivers override that scan target and inherit the existing jobs. A small building subclass corrects inherited text without changing the composting process.
 
 WHAT IT DELIBERATELY DOES NOT DO
 
@@ -35,7 +35,7 @@ It redistributes nothing. Every mod it works with is a dependency loaded from yo
 
 COMPATIBILITY
 
-Safe to add to an existing save. Removing it mid-save leaves behind any composters already built; deconstruct them first.
+Designed to be added to an existing save; final in-game validation is pending. Deconstruct all manure composters before removing the mod.
 
 Load after Dubs Bad Hygiene, Manure and Fertile Fields.
 
@@ -45,11 +45,13 @@ If I do not answer within a reasonable time after being contacted, anyone may fr
 
 AI-GENERATED
 
-This mod was written with Claude Code (Anthropic) under human direction, review and testing. Stated openly: working with these tools is my job.
+This mod was developed with Claude Code (Anthropic) and Codex (OpenAI) under human direction. The preview illustration was generated with OpenAI image generation. Automated checks have passed; final in-game validation is pending.
 
 THANKS
 
-Burok for Manure, which does the simulation this builds on. Dubwise for Dubs Bad Hygiene, whose composter this configures rather than reimplements, and for leaving the extension points open and named. Velcroboy, whose own Manure mod for 1.3 and 1.5 first put a composter and these compatibility patches together - none of its code is used here, but reading it is what pointed at the integrations worth having.</description>
+Burok for Manure, which does the simulation this builds on. Dubwise for Dubs Bad Hygiene, whose composter this configures rather than reimplements, and for leaving the extension points open and named. Velcroboy, whose own Manure mod for 1.3 and 1.5 first put a composter and these compatibility patches together - none of its code is used here, but reading it is what pointed at the integrations worth having.
+
+[url=https://github.com/vbardales/Rimworld-Manure-Composting]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>Burok.Manure</packageId>

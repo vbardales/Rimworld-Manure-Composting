@@ -1,0 +1,90 @@
+PASS all distributed XML parses
+PASS unique resource Nelim_Composters.label
+PASS nonempty Nelim_Composters.label
+PASS unique resource LoadComposter.reportString
+PASS nonempty LoadComposter.reportString
+PASS unique resource UnloadComposter.reportString
+PASS nonempty UnloadComposter.reportString
+PASS unique resource Nelim_ManureComposter.label
+PASS nonempty Nelim_ManureComposter.label
+PASS unique resource Nelim_ManureComposter.description
+PASS nonempty Nelim_ManureComposter.description
+PASS unique resource Nelim_FillManureComposter.label
+PASS nonempty Nelim_FillManureComposter.label
+PASS unique resource Nelim_FillManureComposter.verb
+PASS nonempty Nelim_FillManureComposter.verb
+PASS unique resource Nelim_FillManureComposter.gerund
+PASS nonempty Nelim_FillManureComposter.gerund
+PASS unique resource Nelim_UnloadManureComposter.label
+PASS nonempty Nelim_UnloadManureComposter.label
+PASS unique resource Nelim_UnloadManureComposter.verb
+PASS nonempty Nelim_UnloadManureComposter.verb
+PASS unique resource Nelim_UnloadManureComposter.gerund
+PASS nonempty Nelim_UnloadManureComposter.gerund
+PASS nine owned Def fields inventoried
+PASS French covers Nelim_Composters.label
+PASS line breaks match Nelim_Composters.label
+PASS French covers Nelim_ManureComposter.label
+PASS line breaks match Nelim_ManureComposter.label
+PASS French covers Nelim_ManureComposter.description
+PASS line breaks match Nelim_ManureComposter.description
+PASS French covers Nelim_FillManureComposter.label
+PASS line breaks match Nelim_FillManureComposter.label
+PASS French covers Nelim_FillManureComposter.verb
+PASS line breaks match Nelim_FillManureComposter.verb
+PASS French covers Nelim_FillManureComposter.gerund
+PASS line breaks match Nelim_FillManureComposter.gerund
+PASS French covers Nelim_UnloadManureComposter.label
+PASS line breaks match Nelim_UnloadManureComposter.label
+PASS French covers Nelim_UnloadManureComposter.verb
+PASS line breaks match Nelim_UnloadManureComposter.verb
+PASS French covers Nelim_UnloadManureComposter.gerund
+PASS line breaks match Nelim_UnloadManureComposter.gerund
+PASS unique resource MC_ContainsManure
+PASS nonempty MC_ContainsManure
+PASS unique resource MC_DebugFinishComposting
+PASS nonempty MC_DebugFinishComposting
+PASS unique resource MC_ContainsManure
+PASS nonempty MC_ContainsManure
+PASS unique resource MC_DebugFinishComposting
+PASS nonempty MC_DebugFinishComposting
+PASS Keyed languages have identical coverage
+PASS parameters match MC_ContainsManure
+PASS parameters match MC_DebugFinishComposting
+PASS source key resolves MC_ContainsManure
+PASS source key resolves MC_DebugFinishComposting
+PASS inherited key EN/FR ContainsCompost
+PASS inherited parameters ContainsCompost
+PASS inherited key EN/FR ContainsFecalSludge
+PASS inherited parameters ContainsFecalSludge
+PASS inherited key EN/FR Composted
+PASS inherited parameters Composted
+PASS inherited key EN/FR CompostingProgress
+PASS inherited parameters CompostingProgress
+PASS inherited key EN/FR ComposterOutOfIdealTemperature
+PASS inherited parameters ComposterOutOfIdealTemperature
+PASS inherited key EN/FR IdealCompostingTemperature
+PASS inherited parameters IdealCompostingTemperature
+PASS inherited key EN/FR NoCompostingMaterial
+PASS inherited parameters NoCompostingMaterial
+PASS inherited vanilla key EN/FR Temperature
+PASS inherited vanilla key EN/FR BadTemperature
+PASS inherited vanilla key EN/FR RuinedByTemperature
+PASS inherited vanilla key EN/FR Overheating
+PASS inherited vanilla key EN/FR Freezing
+PASS DBH English job exists LoadComposter
+PASS job target token LoadComposter
+PASS DBH English job exists UnloadComposter
+PASS job target token UnloadComposter
+PASS description ends with exact repository link
+PASS About URL matches description
+PASS ModIcon.png PNG signature
+PASS ModIcon.png dimensions
+PASS ModIcon.png below 1 MB
+PASS Preview.png PNG signature
+PASS Preview.png dimensions
+PASS Preview.png below 1 MB
+PASS distributed LICENSE matches
+PASS distributed ATTRIBUTION.md matches
+PASS no dependency DLL redistribution
+88 packaging and localization checks passed; no in-game display claim.

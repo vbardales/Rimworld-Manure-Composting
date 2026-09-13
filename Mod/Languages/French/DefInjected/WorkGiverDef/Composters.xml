@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Nelim_FillManureComposter.label>remplir les composteurs à fumier</Nelim_FillManureComposter.label>
+  <Nelim_FillManureComposter.verb>remplir</Nelim_FillManureComposter.verb>
+  <Nelim_FillManureComposter.gerund>remplissage</Nelim_FillManureComposter.gerund>
+  <Nelim_UnloadManureComposter.label>vider les composteurs à fumier</Nelim_UnloadManureComposter.label>
+  <Nelim_UnloadManureComposter.verb>retirer le compost</Nelim_UnloadManureComposter.verb>
+  <Nelim_UnloadManureComposter.gerund>retrait du compost</Nelim_UnloadManureComposter.gerund>
+</LanguageData>

@@ -30,7 +30,7 @@ are hard dependencies, present at runtime; neither is copied.
 - Supplies `DubsBadHygiene.Building_Composter`, `DubsBadHygiene.CompProperties_Composter`, the
   `LoadComposter` / `UnloadComposter` jobs, the `Biosolids` item, the `Hygiene` designation
   category and the `BuildingsHygiene` thing category.
-- The composter ThingDef here sets `thingClass` to DBH's class and configures it. The building's
+- The composter uses our text-only subclass of DBH; the ThingDef originally set `thingClass` to DBH's class and configures it. The building's
   behaviour — progress, temperature factor, fill bar, inspect string, save format — is DBH's code
   running on a def of ours. Nothing is copied into this mod.
 - `graphicData/texPath` points at `DBH/Things/Building/Sewage/Composter`, which is DBH's own
@@ -47,7 +47,9 @@ by Dubs to invite exactly this.
 - `Source/ManureCompostingDefs.cs` — a lazy def lookup.
 - `Mod/Defs/ThingDefs_Buildings/ManureComposter.xml`, `Mod/Defs/WorkGiverDefs/WorkGivers.xml`.
 - `Mod/Patches/*.xml` — written against the current 1.6 defs of each target.
-- Packaging and documentation.
+- Source/Building_ManureComposter.cs: original text-only adapter around DBH, preserving its simulation and serialization.
+- English/French resources, including original corrections for the two shared DBH job reports.
+- Generated artwork, packaging, tests and documentation.
 
 ## Acknowledged, but not a source
 

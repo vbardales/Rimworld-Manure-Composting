@@ -1,0 +1,8 @@
+Patch operations not implemented here: PatchOperationAddDesignator - a def one of them creates is invisible to this script
+Patch operations applied: 37
+Defs indexed: 11829
+MayRequire     Nelim_ManureComposter depends on 'Dubwise.DubsBadHygiene,Burok.Manure' - its translation must sit in a folder gated on the same mod  (Languages\French\DefInjected\ThingDef\Composter.xml)
+MayRequire     Nelim_FillManureComposter depends on 'Dubwise.DubsBadHygiene,Burok.Manure' - its translation must sit in a folder gated on the same mod  (Languages\French\DefInjected\WorkGiverDef\Composters.xml)
+MayRequire     Nelim_UnloadManureComposter depends on 'Dubwise.DubsBadHygiene,Burok.Manure' - its translation must sit in a folder gated on the same mod  (Languages\French\DefInjected\WorkGiverDef\Composters.xml)
+
+Keys checked: 11 - errors: 0

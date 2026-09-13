@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1 — unreleased, 2026-09-13
+
+- Install 128x128 icon and 896x504 preview; preserve originals and reproducible composition in Art/.
+- Add French coverage and translated development control, with correct manure contents and DBH loading/unloading reports.
+- Correct the cold-temperature description: DBH slows composting; extreme temperatures can ruin contents.
+- Preserve DBH behavior and saved state through a text-only building subclass.
+- Add the final source-code link and remove unverified live-testing claims.
+- Keep build intermediates within the standalone repository.
+- Add executable patch/WorkGiver, text-adapter and resource tests, plus written in-game scenarios.
+- Final validation in a running game remains pending.
+
 ## 1.0.0 — unreleased
 
 First version. Not yet tested in a running game.

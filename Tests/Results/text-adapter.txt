@@ -1,0 +1,21 @@
+PASS English manure quantity 0 and unrelated lines preserved
+PASS English manure quantity 1 and unrelated lines preserved
+PASS English manure quantity 249 and unrelated lines preserved
+PASS English manure quantity 250 and unrelated lines preserved
+PASS English finished content unchanged
+PASS English no invented line on minified/empty base text
+PASS English gizmos and order preserved
+PASS English development label translated
+PASS English unrelated command unchanged
+PASS English development action preserved
+PASS French manure quantity 0 and unrelated lines preserved
+PASS French manure quantity 1 and unrelated lines preserved
+PASS French manure quantity 249 and unrelated lines preserved
+PASS French manure quantity 250 and unrelated lines preserved
+PASS French finished content unchanged
+PASS French no invented line on minified/empty base text
+PASS French gizmos and order preserved
+PASS French development label translated
+PASS French unrelated command unchanged
+PASS French development action preserved
+20 text-adapter checks passed against a DBH base test double; no game UI claim.

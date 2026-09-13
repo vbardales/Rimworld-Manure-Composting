@@ -1,0 +1,41 @@
+PASS Real patch engine: BurnItForFuel.xml Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs
+PASS Real patch engine: DubsBadHygiene.xml Defs/ThingDef[defName="BiosolidsComposter"]
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs
+PASS Absent optional targets stay absent
+PASS Real patch engine: BurnItForFuel.xml Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs
+PASS Real patch engine: DubsBadHygiene.xml Defs/ThingDef[defName="BiosolidsComposter"]
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs
+PASS DBH composter joins dropdown once
+PASS MakeCompost accepts Manure in ingredients/li/filter
+PASS MakeCompost accepts DryManure in ingredients/li/filter
+PASS MakeCompost accepts Manure in fixedIngredientFilter
+PASS MakeCompost accepts DryManure in fixedIngredientFilter
+PASS MakeCompost defaults to dried manure
+PASS MakeCompost does not default to fresh manure
+PASS MakeCompost5 accepts Manure in ingredients/li/filter
+PASS MakeCompost5 accepts DryManure in ingredients/li/filter
+PASS MakeCompost5 accepts Manure in fixedIngredientFilter
+PASS MakeCompost5 accepts DryManure in fixedIngredientFilter
+PASS MakeCompost5 defaults to dried manure
+PASS MakeCompost5 does not default to fresh manure
+PASS Real patch engine: BurnItForFuel.xml Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs
+PASS Real patch engine: DubsBadHygiene.xml Defs/ThingDef[defName="BiosolidsComposter"]
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs
+PASS Incomplete optional filter is safely skipped
+PASS Real patch engine: BurnItForFuel.xml Defs/ThingDef[defName="BurnItForFuel"]/building/fixedStorageSettings/filter/thingDefs
+PASS Real patch engine: DubsBadHygiene.xml Defs/ThingDef[defName="BiosolidsComposter"]
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/ingredients/li/filter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/fixedIngredientFilter/thingDefs
+PASS Real patch engine: FertileFields.xml Defs/RecipeDef[defName="MakeCompost" or defName="MakeCompost5"]/defaultIngredientFilter/thingDefs
+PASS Compatible optional burner receives dried manure
+PASS WorkGiver_FillManureComposter scans the registered manure composter
+PASS WorkGiver_FillManureComposter cached lookup remains stable
+PASS WorkGiver_UnloadManureComposter scans the registered manure composter
+PASS WorkGiver_UnloadManureComposter cached lookup remains stable
+40 checks passed. No map, UI, pawn job execution or persistence test is claimed.

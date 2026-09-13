@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <Nelim_ManureComposter.label>composteur à fumier</Nelim_ManureComposter.label>
+  <Nelim_ManureComposter.description>Un composteur qui transforme le fumier animal frais en biosolides. Au lieu de sécher pour servir de combustible, le fumier se décompose pour produire le même engrais que les eaux usées. Les animaux de l'étable deviennent ainsi une source de fertilisant.\n\nLe froid ralentit le compostage et les températures extrêmes peuvent gâcher le contenu. Installez-le dans un endroit tempéré.</Nelim_ManureComposter.description>
+</LanguageData>

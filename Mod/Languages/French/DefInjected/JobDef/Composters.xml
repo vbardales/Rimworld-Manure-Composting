@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- These shared DBH jobs are also used by the manure composter. -->
+  <LoadComposter.reportString>Remplit TargetA.</LoadComposter.reportString>
+  <UnloadComposter.reportString>Retire le compost de TargetA.</UnloadComposter.reportString>
+</LanguageData>
