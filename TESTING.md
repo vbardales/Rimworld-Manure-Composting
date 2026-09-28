@@ -13,7 +13,7 @@ their reports were read and their `@review` captures were opened.
 | Text adapter | `Tests/Test-TextAdapter.ps1`, `Tests/TextAdapterTests.cs` | The building subclass against a minimal DBH/Verse test double: quantities, untouched lines, finished and minified states, gizmo identity, order and action. |
 | Packaging and localization | `Tests/test_resources.py` | XML syntax; every owned and reused translation key in English and French; placeholders and DefInjected targets; metadata; images; licence copies; **no settings class, no `MainButtonDef`, no declared incompatibility** (which is the evidence for `settings_audit: not_applicable`). |
 | XML checkers | the collection's `scripts/Check-XmlFields.ps1`, `Check-XmlClasses.ps1`, `Check-DefRefs.ps1`, `Check-DefInjected.ps1` | Unknown fields, unresolved classes, unresolved def references, DefInjected paths. |
-| Vocabulary check | `Tests/Pickle/Check-Steps.ps1` | Before any ticket: every step line of every feature matches exactly one expression among the suite's and Pickle's own; the pass maps end with a newline. It has been seen failing on an invented step. |
+| Vocabulary check | `Tests/Pickle/Check-Steps.ps1` | Before any ticket: every step line of every feature matches exactly one expression among the suite's and Pickle's own; the pass maps end with a newline. It has been seen failing on an invented step. Vocabulary only, not the logic behind a step: a code review on 2026-09-28 found that "holds N manure" raced DBH's own fermentation timer (fixed below, see `docs/runs/2026-09-28.md`). |
 | Pickle suite | `Tests/Pickle/` | What needs a running game, listed next. |
 
 ### What only a running game shows, and so is in Gherkin

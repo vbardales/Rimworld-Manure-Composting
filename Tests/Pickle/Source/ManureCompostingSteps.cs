@@ -38,10 +38,19 @@ namespace ManureComposting.PickleSteps
             return composter;
         }
 
-        private static int Held(Building_Composter composter)
+        private static bool HoldsAtLeast(Building_Composter composter, int expected)
         {
-            // DBH exposes the free space, not the count, and reports no space once composted.
-            return composter.Fermented ? -1 : Building_Composter.MaxCapacity - composter.SpaceLeftForCompostingMaterial;
+            if (!composter.Fermented)
+                return Building_Composter.MaxCapacity - composter.SpaceLeftForCompostingMaterial >= expected;
+
+            // DBH advances Progress on a fixed schedule regardless of fill level (Building_Composter.TickRare
+            // adds a constant increment once any material is present), so the composter can finish cooking
+            // before a scenario's pawn has hauled in all of it, and it no longer exposes a count once fermented.
+            // A scenario spawns exactly `expected` units of loose Manure and nothing else, so if none of it is
+            // still sitting unhauled on the map, at least `expected` went in before it matured.
+            var map = composter.Map;
+            var def = DefDatabase<ThingDef>.GetNamedSilentFail("Manure");
+            return map != null && def != null && map.listerThings.ThingsOfDef(def).Sum(t => t.stackCount) == 0;
         }
 
         private static string Describe(Building_Composter composter)
@@ -69,7 +78,7 @@ namespace ManureComposting.PickleSteps
         {
             // A pawn walks, hauls and works before the composter fills: give the game time, in real seconds.
             await ctx.AssertEventually(
-                () => Held(ComposterAt(ctx, x, y)) == expected,
+                () => HoldsAtLeast(ComposterAt(ctx, x, y), expected),
                 () => "composter at (" + x + ", " + y + ") does not hold " + expected + " manure: " + Describe(ComposterAt(ctx, x, y)),
                 40f);
         }
