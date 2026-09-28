@@ -80,5 +80,12 @@ for filename,size in [("ModIcon.png",(128,128)),("Preview.png",(896,504))]:
 for name in ["LICENSE","ATTRIBUTION.md"]:
     check((ROOT/name).read_bytes()==(ROOT/"Mod"/name).read_bytes(),f"distributed {name} matches")
 check([p.name for p in (ROOT/"Mod/Assemblies").glob("*.dll")]==["ManureComposting.dll"],"no dependency DLL redistribution")
+# settings_audit: not_applicable. The mod exposes no settings page and no main-bar shortcut, so neither an empty
+# page nor a greyed or visible shortcut can exist. Source and definitions are scanned, not assumed.
+distributed_xml="\n".join(f.read_text(encoding="utf-8") for f in (ROOT/"Mod").rglob("*.xml"))
+check("MainButtonDef" not in distributed_xml,"no MainButtonDef in the distributed XML")
+source_text="\n".join(f.read_text(encoding="utf-8") for f in (ROOT/"Source").glob("*.cs"))
+check(not re.search(r"\bModSettings\b|:\s*Mod\b|DoSettingsWindowContents|SettingsCategory",source_text),"no settings class or settings window in the source")
+check(about.find("incompatibleWith") is None,"no incompatibility is declared, so no incompatibility pass is owed")
 print(f"{checks} packaging and localization checks passed; no in-game display claim.")
 

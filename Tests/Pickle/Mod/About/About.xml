@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Manure Composting - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.manurecomposting.pickletests</packageId>
+  <supportedVersions><li>1.6</li></supportedVersions>
+  <description>In-game functional tests for Manure Composting, run by Pickle. Development only: never published.</description>
+  <modDependencies>
+    <li><packageId>nelim.manurecomposting</packageId><displayName>Manure Composting</displayName></li>
+    <li><packageId>rimworks.pickle</packageId><displayName>Pickle</displayName><steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl></li>
+  </modDependencies>
+  <loadAfter><li>nelim.manurecomposting</li><li>rimworks.pickle</li></loadAfter>
+</ModMetaData>

@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Build intermediates stay outside Mod/, and outside the repository's tracked files. -->
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)..\..\..\.build\pickle\obj\</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)..\..\..\.build\pickle\bin\</BaseOutputPath>
+  </PropertyGroup>
+</Project>

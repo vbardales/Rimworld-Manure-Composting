@@ -39,7 +39,7 @@ Run dotnet build Source/ManureComposting.csproj. Output goes to Mod/Assemblies a
 intermediates stay in this repository's .build directory. The DBH HintPath in the project
 must point to your local 1.6 BadHygiene.dll; Private=false prevents copying it into this mod.
 
-See [Tests/README.md](Tests/README.md), [test results](Tests/Results/README.md) and
+See [TESTING.md](TESTING.md) (what is tested, the passes, what evidence to keep), [Tests/README.md](Tests/README.md) and
 [functional scenarios](TEST_SCENARIOS.md). Automated checks and build pass; **not yet
 validated in a running game**.
 

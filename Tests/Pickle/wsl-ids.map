@@ -1,0 +1,4 @@
+# Workshop ids of the hard dependencies the shared staging table does not know.
+# Read in every pass, the bare one included; it only resolves, nothing here is activated by itself.
+Burok.Manure            3784198780
+Dubwise.DubsBadHygiene  836308268
