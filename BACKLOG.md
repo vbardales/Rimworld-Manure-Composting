@@ -3,11 +3,14 @@
 Open work for this mod only.
 
 ## Upstream
-- **No source repository is known for the mods this one builds on.** Checked on 2026-09-28: the local `About.xml` of Burok's Manure
-  (`3784198780`) and of Velcroboy's Manure (`3252954927`, the idea, no code used) carry no `<url>`, a GitHub search returned nothing, and the
-  descriptions of both Steam pages, read in a browser the same day, link no repository. No pull request is owed. If a repository appears, the
-  rule of `PUBLISHING.md` applies: a pull request to it is systematic, and goes here until it is made. It stays public work, so it needs the
-  owner's word first.
+- **Burok's Manure has a source repository: `https://github.com/Burakyilmam/Manure`.** Found 2026-09-28, linked by the user, confirmed by its README
+  (credits Burok, links Workshop item 3784198780). Source only (14 `.cs` files), no `About.xml`, no `LICENSE` file. **`PUBLISHING.md` makes a pull
+  request systematic once an upstream repository exists** — but this mod names Burok's ThingDefs and reuses none of Burok's code, so it likely has
+  nothing to propose there. Read the source to confirm before closing this line: only with the owner's word, since a fork and a PR are public.
+- **No source repository is known for Velcroboy's Manure** (`3252954927`), the mod whose idea (not code) is credited. Checked on 2026-09-28: its local
+  `About.xml` carries no `<url>`, a GitHub search returned nothing, and its Steam page description, read in a browser the same day, links no repository.
+  No pull request is owed here; retry only if new evidence turns up.
+
 ## Tests
 
 - Play the three passes of `TESTING.md` (minimal English, minimal French, with Fertile Fields). Nothing in the Pickle suite has run yet.

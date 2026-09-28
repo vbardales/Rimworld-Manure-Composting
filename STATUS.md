@@ -12,7 +12,8 @@ stage:        done
 workflow_stage: done
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
-upstream_mod_remotes: N/A
+upstream_mod_remotes:
+  - https://github.com/Burakyilmam/Manure (Burok.Manure, source only, no LICENSE file, found 2026-09-28)
 dependencies: declared
 showcase:     complete
 tested_on:
@@ -66,9 +67,10 @@ makes it public, and this is not the `prepublished` state of the chain, which ne
 ## Origin of the code
 
 The mod is an original creation: nothing is copied from another mod (`ATTRIBUTION.md`). Velcroboy's Manure (1.3 and 1.5, dead) was read for the idea, and Burok's
-Manure and Dubs Bad Hygiene are hard dependencies loaded from the player's copy. A source repository was looked for on 2026-09-28: none is linked from the local
-`About.xml` of Burok's or Velcroboy's mod, a GitHub search found none, and the descriptions of both Steam pages, read on 2026-09-28 in a browser, link no repository. So no pull request is owed. If one appears, the pull request to it is systematic
-(`PUBLISHING.md`) and goes in `BACKLOG.md`.
+Manure and Dubs Bad Hygiene are hard dependencies loaded from the player's copy. **Burok's Manure has a source repository**, `https://github.com/Burakyilmam/Manure`
+(user-supplied link, found 2026-09-28, confirmed by its README: credits Burok, links Workshop item 3784198780), source only, no `LICENSE` file. Whether the
+`PUBLISHING.md` pull-request rule leaves anything to propose is open (`BACKLOG.md`): this mod names Burok's ThingDefs but reuses none of Burok's code. No
+repository is known for Velcroboy's Manure, whose Steam page and local `About.xml` link none, and a GitHub search found none.
 
 ## Evidence
 
