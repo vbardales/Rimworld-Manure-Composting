@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.0.1 — unreleased, 2026-09-13
+## [1.0.0] - unreleased
+
+First version. Not yet tested in a running game.
+
+### Changed since the first draft
+
+Never released, so these were folded into 1.0.0 (an earlier draft of this file listed them as 1.0.1).
 
 - Install 128x128 icon and 896x504 preview; preserve originals and reproducible composition in Art/.
 - Add French coverage and translated development control, with correct manure contents and DBH loading/unloading reports.
@@ -10,10 +16,6 @@
 - Keep build intermediates within the standalone repository.
 - Add executable patch/WorkGiver, text-adapter and resource tests, plus written in-game scenarios.
 - Final validation in a running game remains pending.
-
-## 1.0.0 — unreleased
-
-First version. Not yet tested in a running game.
 
 ### Added
 
@@ -59,3 +61,13 @@ comp, and the assembly is two property overrides written against DBH's public AP
   arrives four times faster than configured.
 - `spawnIntervalRangeLow` / `High` are `static`, initialised at type load, so the frequency
   sliders do nothing mid-game.
+
+## [0.1.0] - 2026-09-23
+
+Creation of the publish ID file. The Workshop item was created, private as Steam creates every item,
+for one purpose: to obtain `Mod/About/PublishedFileId.txt` so that later uploads update this item instead of
+creating a second one.
+
+- Uploaded content: `Mod/` as it stood at commit `0095f75`, the last commit at the time.
+- Not a tested version and not a public release: the item stays private until the owner makes it public.
+- The commit that adds `Mod/About/PublishedFileId.txt` is the commit of this version.
