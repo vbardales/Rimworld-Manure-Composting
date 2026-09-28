@@ -43,9 +43,11 @@ These rows of `TEST_SCENARIOS.md` end as *not applicable*, each with its reason,
   save has ever held another version. Nothing to upgrade from.
 - **A real restart between a write and a read.** The mod owns no serialized field; the two it saves are DBH's, and scenario `02`
   reloads them in process. A restart would add nothing the mod owns.
-- **Burn It for Fuel.** `JPT.BurnItForFuel` declares 1.1 to 1.3 and cannot load in 1.6, and no continuation exists. The patch is guarded on the
-  def, so it is inert, and its behavior against a synthetic compatible target is in the offline contracts. The live scenario is owed the day a 1.6
-  continuation appears (`BACKLOG.md`).
+- **Burn It for Fuel.** The installed `JPT.BurnItForFuel` declares 1.1 to 1.3 and cannot load in 1.6. **Two 1.6 successors exist, found on 2026-09-28
+  on their Steam pages and not yet inspected**: Mlie's deprecated "(Continued)" (`3004932466`, declares 1.6) and jptrrs's rewrite "Burn It for Fuel 2"
+  (`3553442151`, 1.6, a different design with a per-building fuel tab). Whether either keeps the def `BurnItForFuel` and the storage filter the patch
+  targets is unknown, so the patch may be inert or aimed at the wrong mod. Until `BACKLOG.md` is done, the patch is exercised only against a synthetic
+  target in the offline contracts, and the live scenario is **unverified**, not justified as not applicable.
 - **Settings, MainButtons shortcut, RIMMSQOL.** The mod has none (offline check above): no page, no shortcut, no integration to claim.
 - **DLC absent, declared incompatibility.** The mod uses no DLC and declares no `incompatibleWith`.
 

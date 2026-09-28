@@ -20,6 +20,7 @@ remaining:
   - unverified: Play the three passes of TESTING.md in the game (minimal-en, minimal-fr, avec-fertilefields). Nothing of the Pickle suite has run; no report exists.
   - unverified: Open and read the four @review captures (composter filling and composted, English and French) for raw keys, accented fallback and clipping.
   - unverified: Read the startup Player.log of each pass; no error, unresolved def or translation from this mod.
+  - unverified: Burn It for Fuel has two 1.6 successors (Mlie's Continued 3004932466, Burn It for Fuel 2 3553442151), neither installed nor inspected; the patch may aim at neither (BACKLOG.md).
 session:      local_b08654aa-d51f-4735-9269-5535095b95bf
 updated:      2026-09-28, audit applied, Pickle suite written, evidence out of git
 ---

@@ -11,8 +11,6 @@ Open work for this mod only.
 ## Tests
 
 - Play the three passes of `TESTING.md` (minimal English, minimal French, with Fertile Fields). Nothing in the Pickle suite has run yet.
-- When a 1.6 continuation of `JPT.BurnItForFuel` exists, add a live scenario for the storage-filter patch. Until then it is justified as not
-  applicable in `TESTING.md`.
 
 ## Before `prepublished`
 
@@ -24,3 +22,19 @@ Open work for this mod only.
   by the CI's `update_description` or by hand on the page.
 - Once the Pickle passes have run, add Pickle and RimLogging to `THANKS` in the description, as development-only tools and never a dependency
   of the mod (`PUBLISHING.md`, "Mentions"). They are not named there yet: the tools have not been used yet.
+
+## Dependencies, read on Steam 2026-09-28 in a browser
+
+- **Burn It for Fuel has two 1.6 successors, and the patch may aim at neither.** The installed `JPT.BurnItForFuel` (`1823276856`, obsolete, 1.1 to 1.3, needs HugsLib)
+  is the target of `Mod/Patches/BurnItForFuel.xml` and of a `loadAfter`. Mlie's "[Depricated] (Continued)" (`3004932466`, declares 1.6, needs Harmony and HugsLib) and jptrrs's
+  "Burn It for Fuel 2" (`3553442151`, 1.6, no dependency, a rewrite with a per-building fuel tab) are not installed here. Subscribe to both, read their defs, and decide
+  whether the patch targets a def that exists, whether `loadAfter` needs their packageIds, and whether the description and `ATTRIBUTION.md` (which say "no continuation is
+  installed") need the two named. Then add the live scenario. Any change touches `Mod/`, so it waits until the three queued tickets have finished. Source: GitHub
+  `jptrrs/BurnItForFuel`.
+- **Dubs Bad Hygiene** (`836308268`, Dubwise): alive, 1.6, updated 2025-07-21, and its descriptions give an issue tracker and releases at
+  `github.com/Dubwise56/Dubs-Bad-Hygiene`. It is a hard dependency, not the origin of this mod, so no pull request rule applies. Its extension points named
+  `ThingDefToCompost_PatchMe` and `ThingDefToProduce_PatchMe` are what this mod relies on; a change there is a reason to rerun the passes.
+- **Fertile Fields 1.6** (`3225843229`, Greysuki, the current maintainer): its description credits three people, Rainbeau Flambe (original), Jamaican Castle
+  (maintainer until 1.4) and Greysuki, and its licence asks only to be told about a derivative or basis. This mod is neither, but the thank-you comment at
+  `prepublished` credits all three, in one message on this page. The installed packageId is `jamaicancastle.RF.fertilefields`, unchanged by the continuation.
+  Its known issues list Odyssey terrain as unsupported, which this mod does not touch.
