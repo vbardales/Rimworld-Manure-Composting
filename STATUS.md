@@ -68,9 +68,9 @@ makes it public, and this is not the `prepublished` state of the chain, which ne
 
 The mod is an original creation: nothing is copied from another mod (`ATTRIBUTION.md`). Velcroboy's Manure (1.3 and 1.5, dead) was read for the idea, and Burok's
 Manure and Dubs Bad Hygiene are hard dependencies loaded from the player's copy. **Burok's Manure has a source repository**, `https://github.com/Burakyilmam/Manure`
-(user-supplied link, found 2026-09-28, confirmed by its README: credits Burok, links Workshop item 3784198780), source only, no `LICENSE` file. Whether the
-`PUBLISHING.md` pull-request rule leaves anything to propose is open (`BACKLOG.md`): this mod names Burok's ThingDefs but reuses none of Burok's code. No
-repository is known for Velcroboy's Manure, whose Steam page and local `About.xml` link none, and a GitHub search found none.
+(user-supplied link, found 2026-09-28, confirmed by its README: credits Burok, links Workshop item 3784198780), source only, no `LICENSE` file. Read
+in full on 2026-09-28: no overlap with this mod, which only names `Manure` and `DryManure` by defName; `PUBLISHING.md`'s pull-request rule finds
+nothing to propose there (`BACKLOG.md`). No repository is known for Velcroboy's Manure, whose Steam page and local `About.xml` link none.
 
 ## Evidence
 

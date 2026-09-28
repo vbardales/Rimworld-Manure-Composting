@@ -3,10 +3,11 @@
 Open work for this mod only.
 
 ## Upstream
-- **Burok's Manure has a source repository: `https://github.com/Burakyilmam/Manure`.** Found 2026-09-28, linked by the user, confirmed by its README
-  (credits Burok, links Workshop item 3784198780). Source only (14 `.cs` files), no `About.xml`, no `LICENSE` file. **`PUBLISHING.md` makes a pull
-  request systematic once an upstream repository exists** — but this mod names Burok's ThingDefs and reuses none of Burok's code, so it likely has
-  nothing to propose there. Read the source to confirm before closing this line: only with the owner's word, since a fork and a PR are public.
+- **Burok's Manure has a source repository, read in full: nothing to propose.** `https://github.com/Burakyilmam/Manure` (found 2026-09-28, README
+  confirms Burok, links Workshop item 3784198780; source only, no `About.xml`, no `LICENSE`). Read on 2026-09-28: 13 files, `Need_Digestion`, the
+  drying and rot-stink comps, one Harmony patch on `Plant.PlantCollected`, a settings page. No overlap with this mod, which only names `Manure` and
+  `DryManure` by defName and never touches Burok's C# or defs; no defect found to report either. `PUBLISHING.md`'s pull-request rule finds nothing
+  here to propose. Closed.
 - **No source repository is known for Velcroboy's Manure** (`3252954927`), the mod whose idea (not code) is credited. Checked on 2026-09-28: its local
   `About.xml` carries no `<url>`, a GitHub search returned nothing, and its Steam page description, read in a browser the same day, links no repository.
   No pull request is owed here; retry only if new evidence turns up.
