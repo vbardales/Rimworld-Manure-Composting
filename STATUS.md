@@ -12,6 +12,7 @@ stage:        done
 workflow_stage: done
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
+upstream_mod_remotes: N/A
 dependencies: declared
 showcase:     complete
 tested_on:
