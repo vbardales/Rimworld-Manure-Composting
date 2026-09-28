@@ -3,9 +3,11 @@
 Open work for this mod only.
 
 ## Upstream
-
-  systematic, and goes here until it is made. It stays public work, so it needs the owner's word first.
-
+- **No source repository is known for the mods this one builds on.** Checked on 2026-09-28: the local `About.xml` of Burok's Manure
+  (`3784198780`) and of Velcroboy's Manure (`3252954927`, the idea, no code used) carry no `<url>`, a GitHub search returned nothing, and the
+  descriptions of both Steam pages, read in a browser the same day, link no repository. No pull request is owed. If a repository appears, the
+  rule of `PUBLISHING.md` applies: a pull request to it is systematic, and goes here until it is made. It stays public work, so it needs the
+  owner's word first.
 ## Tests
 
 - Play the three passes of `TESTING.md` (minimal English, minimal French, with Fertile Fields). Nothing in the Pickle suite has run yet.
