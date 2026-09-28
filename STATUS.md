@@ -14,19 +14,19 @@ licence_at:   MIT for own implementation and artwork; runtime dependencies are n
 dependencies: declared
 showcase:     complete
 tested_on:
-workshop:
+workshop:     3806768526 (from Mod/About/PublishedFileId.txt, not confirmed live on Steam)
 remaining:
   - unverified: Execute TEST_SCENARIOS.md in RimWorld 1.6 in English and French; check Player.log and UI.
   - unverified: Validate new colony and copied existing-save upgrade, persistence, minification and production cycle.
   - unverified: Execute optional Fertile Fields integration in game; burner runtime scenario only when a compatible target is available.
-updated:      2026-09-13, audit defects corrected and automated checks passed
+updated:      2026-09-28, maintained by the mod session; repo state and Workshop id reconciled
 ---
 
 # Current status — fixes validated on 2026-09-13
 
 **done** means ready for final functional validation in game, not already tested in game.
 It is the literal code from the supplied workflow. All preceding cumulative gates are now
-established. No publication or Git push was performed; the working tree contains the fixes.
+established. The fixes are committed and pushed (origin/main 0095f75, 2026-09-20). A Workshop item id is present locally, see `workshop`.
 
 | Gate | Current result |
 | --- | --- |
