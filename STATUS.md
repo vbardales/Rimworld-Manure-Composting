@@ -9,18 +9,91 @@ repo:         Rimworld-Manure-Composting
 visibility:   public
 detached:     yes
 stage:        done
+workflow_stage: done
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
 dependencies: declared
 showcase:     complete
 tested_on:
-workshop:     3806768526 (from Mod/About/PublishedFileId.txt, not confirmed live on Steam)
+workshop:     3806768526 (private item created 2026-09-23 by the 0.1.0 prepublication; not confirmed by opening the page)
 remaining:
-  - unverified: Execute TEST_SCENARIOS.md in RimWorld 1.6 in English and French; check Player.log and UI.
-  - unverified: Validate new colony and copied existing-save upgrade, persistence, minification and production cycle.
-  - unverified: Execute optional Fertile Fields integration in game; burner runtime scenario only when a compatible target is available.
-updated:      2026-09-28, maintained by the mod session; repo state and Workshop id reconciled
+  - unverified: Play the three passes of TESTING.md in the game (minimal-en, minimal-fr, avec-fertilefields). Nothing of the Pickle suite has run; no report exists.
+  - unverified: Open and read the four @review captures (composter filling and composted, English and French) for raw keys, accented fallback and clipping.
+  - unverified: Read the startup Player.log of each pass; no error, unresolved def or translation from this mod.
+  - unverified: Steam pages of Burok's Manure and Velcroboy's Manure could not be read (HTTP 429), so a repository link in their descriptions is not ruled out (BACKLOG.md).
+session:      local_b08654aa-d51f-4735-9269-5535095b95bf
+updated:      2026-09-28, audit applied, Pickle suite written, evidence out of git
 ---
+
+# Manure Composting - status
+
+Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by the session that holds this mod.
+
+## Where it stands
+
+`stage` is **done**: the offline tests were replayed and are green, and the Pickle suite is written and justified. **Nothing has run in a game**, so `tested` is
+not claimed and `tested_on` stays empty. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public, the only
+remote). A private Workshop item exists (`0.1.0`, `Mod/About/PublishedFileId.txt`); `1.0.0` stays unreleased above it in the CHANGELOG.
+
+`stage` codes, as `AUDIT.md` step 12 defines them: `port` before `horsMonoRepo`; `showcase` from `Preview générée` to `l10n`; then `preTest`, `done`, `tested`,
+`published`. `prepublished` has no code of its own: it is recorded in `workflow_stage` when it applies.
+
+## Audit of 2026-09-28
+
+Audited on `68aa615` plus the working-tree changes of the day. **Entry state: `preTest`, not the `done` this file declared**, because `preTest -> done` failed: no
+`Tests/Pickle/`, no `TESTING.md`, and no sentence justifying the absence of Pickle suites (`AUDIT.md`: silence is not a justification). Every transition before it held.
+The defect was then corrected in the same session, by the session that holds the mod, and the transition was audited again: `done`.
+
+| Transition | Result | Evidence |
+| --- | --- | --- |
+| dansMonoRepo -> horsMonoRepo | Validated | Own git repository on `main`, one remote, GitHub repository public; STATUS, README, ATTRIBUTION, LICENSE, CHANGELOG in English; the copies in `Mod/` equal the root ones |
+| horsMonoRepo -> ModIcon | Validated | `Mod/About/ModIcon.png` 128x128, 22204 bytes; original in `Art/ModIcon-original.png`. Not regenerated (owner's job only) |
+| ModIcon -> Preview | Validated | `Mod/About/Preview.png` 896x504, 561109 bytes, under 1 MB |
+| Preview -> preOptions | Validated | Description in English; ends with `[url=...]Source code on GitHub[/url]` to the exact repository (`test_resources.py`); name has no prefix, suffix or linking word to treat |
+| preOptions -> options | Validated, `not_applicable` | No settings class, no `MainButtonDef`, no declared incompatibility, executable in `test_resources.py` (91 checks) |
+| options -> l10n | Validated against the current TRANSLATIONS.md | Two Keyed keys per language, nine owned Def fields in French, parameters and DefInjected paths checked. **Plurals (rule of 2026-09-25):** the only number shown through a key is `MC_ContainsManure` (`{0}/{1}`, an amount of a mass noun over a capacity), not a counted noun phrase, so it needs no `.One` and `.Many` |
+| l10n -> preTest | Validated | `modDependencies` are Burok.Manure and Dubwise.DubsBadHygiene, both with Workshop ids; `loadAfter` names Fertile Fields and Burn It for Fuel; no `LoadFolders` and none needed; the optional patches are guarded on the def. Redone on 2026-09-28 by reading `About.xml`, the defs and the patches |
+| preTest -> done | **Failed at entry, corrected, validated** | Offline tests replayed 2026-09-28 (details in `docs/runs/2026-09-28.md`); the DLL rebuilds byte-identical; the Pickle suite is written in `Tests/Pickle/` with its scope justified in `TESTING.md`, its vocabulary checked offline |
+| done -> tested | Not started | No game run. Conditions in `TESTING.md` (no `@wip`, every conditional scenario run, no manual test left) |
+
+## Publication state
+
+The private item was created by the `0.1.0` prepublication on 2026-09-23 (the time of `Mod/About/PublishedFileId.txt`); its content is `Mod/` as of commit `0095f75`.
+That commit is inferred from the file time, not recorded when the upload was made. `Mod/About/PublishedFileId.txt` is committed (`68aa615`). The item stays private until the owner
+makes it public, and this is not the `prepublished` state of the chain, which needs `tested` first.
+
+## Origin of the code
+
+The mod is an original creation: nothing is copied from another mod (`ATTRIBUTION.md`). Velcroboy's Manure (1.3 and 1.5, dead) was read for the idea, and Burok's
+Manure and Dubs Bad Hygiene are hard dependencies loaded from the player's copy. A source repository was looked for on 2026-09-28: none is linked from the local
+`About.xml` of Burok's or Velcroboy's mod and a GitHub search found none; the Steam pages could not be read (429). If one appears, the pull request to it is systematic
+(`PUBLISHING.md`) and goes in `BACKLOG.md`.
+
+## Evidence
+
+Nothing is tracked. On disk and ignored: `Tests/Results/` holds the latest output of each offline test (six files), `Tests/Pickle/Evidence/` will hold the Pickle reports.
+The text record is `docs/runs/2026-09-28.md`; what to keep and what to delete after a test is written in `TESTING.md`. Test files that earlier commits tracked
+(`Tests/Results/*`) were removed from the index only; history still holds them.
+
+## Documents read
+
+`docs/PROTOCOLS-READ.md` lists each protocol read on 2026-09-28, its version, and the ones that were not useful.
+
+## Field vocabulary
+
+`stage`: `port`, `showcase`, `preTest`, `done`, `tested`, `published`. `done` means the work is finished and ready for in-game validation, not that it is published.
+
+`licence`: `open` an explicit licence, `silent` no licence and a dead source, `alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
+to anyone (not even an idea traceable to one mod). **`open` is kept as the earlier session set it**: the mod ships an explicit MIT licence. `original` is ruled out by its own definition, since the idea comes from reading Velcroboy's Manure; nothing is owed, nothing being reused.
+
+`remaining`: `feature` for something missing from a first release, `defect` for a known fault left unfixed, `unverified` for what could not be checked.
+
+---
+
+# Earlier status, replaced on 2026-09-28
+
+Kept as written. It said `done` on the strength of the offline tests and had no Pickle suite; the section above supersedes its gate table and its
+pointers to `Tests/Results/`, which is no longer tracked.
 
 # Current status — fixes validated on 2026-09-13
 
