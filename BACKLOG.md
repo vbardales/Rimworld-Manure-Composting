@@ -4,10 +4,6 @@ Open work for this mod only.
 
 ## Upstream
 
-- **No source repository is known for the mods this one builds on.** Checked on 2026-09-28: the local `About.xml` of Burok's Manure
-  (`3784198780`) and of Velcroboy's Manure (`3252954927`, the idea, no code used) carry no `<url>`, Velcroboy's `Credit.txt` names none,
-  and a GitHub search returned nothing. The Steam pages themselves could not be read (HTTP 429), so a link in their descriptions is
-  **not ruled out**. Retry both pages. If a repository appears, the rule of `PUBLISHING.md` applies: a pull request to it is
   systematic, and goes here until it is made. It stays public work, so it needs the owner's word first.
 
 ## Tests

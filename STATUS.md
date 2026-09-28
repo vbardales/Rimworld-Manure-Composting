@@ -15,12 +15,11 @@ licence_at:   MIT for own implementation and artwork; runtime dependencies are n
 dependencies: declared
 showcase:     complete
 tested_on:
-workshop:     3806768526 (private item created 2026-09-23 by the 0.1.0 prepublication; not confirmed by opening the page)
+workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
   - unverified: Play the three passes of TESTING.md in the game (minimal-en, minimal-fr, avec-fertilefields). Nothing of the Pickle suite has run; no report exists.
   - unverified: Open and read the four @review captures (composter filling and composted, English and French) for raw keys, accented fallback and clipping.
   - unverified: Read the startup Player.log of each pass; no error, unresolved def or translation from this mod.
-  - unverified: Steam pages of Burok's Manure and Velcroboy's Manure could not be read (HTTP 429), so a repository link in their descriptions is not ruled out (BACKLOG.md).
 session:      local_b08654aa-d51f-4735-9269-5535095b95bf
 updated:      2026-09-28, audit applied, Pickle suite written, evidence out of git
 ---
@@ -58,7 +57,7 @@ The defect was then corrected in the same session, by the session that holds the
 
 ## Publication state
 
-The private item was created by the `0.1.0` prepublication on 2026-09-23 (the time of `Mod/About/PublishedFileId.txt`); its content is `Mod/` as of commit `0095f75`.
+The private item was created by the `0.1.0` prepublication on 2026-09-23 at 16:46, the time of `Mod/About/PublishedFileId.txt` and of the Steam page; its content is `Mod/` as of commit `0095f75`.
 That commit is inferred from the file time, not recorded when the upload was made. `Mod/About/PublishedFileId.txt` is committed (`68aa615`). The item stays private until the owner
 makes it public, and this is not the `prepublished` state of the chain, which needs `tested` first.
 
@@ -66,7 +65,7 @@ makes it public, and this is not the `prepublished` state of the chain, which ne
 
 The mod is an original creation: nothing is copied from another mod (`ATTRIBUTION.md`). Velcroboy's Manure (1.3 and 1.5, dead) was read for the idea, and Burok's
 Manure and Dubs Bad Hygiene are hard dependencies loaded from the player's copy. A source repository was looked for on 2026-09-28: none is linked from the local
-`About.xml` of Burok's or Velcroboy's mod and a GitHub search found none; the Steam pages could not be read (429). If one appears, the pull request to it is systematic
+`About.xml` of Burok's or Velcroboy's mod, a GitHub search found none, and the descriptions of both Steam pages, read on 2026-09-28 in a browser, link no repository. So no pull request is owed. If one appears, the pull request to it is systematic
 (`PUBLISHING.md`) and goes in `BACKLOG.md`.
 
 ## Evidence
