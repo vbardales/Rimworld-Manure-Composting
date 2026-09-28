@@ -1,3 +1,0 @@
-=== C:\Users\nelim\Documents\rimworld\ManureComposting\Mod ===
-types references depuis le XML : 9
--- tous les types references sont resolus --
