@@ -13,3 +13,4 @@ Rules for a line:
 | File | Covers |
 | --- | --- |
 | [2026-09-28.md](2026-09-28.md) | Offline tests replayed on the delivered build; the Pickle suite written and its vocabulary checked |
+| [2026-09-29.md](2026-09-29.md) | Pickle passes `minimal-en`, `minimal-fr` (both 5/6 passed, 1 skipped as expected), `avec-fertilefields` (failed on a feature-file bug, fixed, not yet re-run) |

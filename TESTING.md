@@ -81,6 +81,14 @@ Add `-Language French` for the second pass and `-DepMap wsl-deps.avec-fertilefie
 A first exploratory ticket may play one scenario only (`-Filter '::a colonist finds the manure composter and fills it'`) to learn the
 fixture: the cells used, the temperature of the test colony, the hauling priority.
 
+### Order of the passes (`AUDIT.md`, 2026-10-02)
+
+What never ran or is red goes first, alone, in a small ticket (`-Filter` on the feature or scenario). Non-regression passes (the full
+suite with its languages, replaying what already has a green run on the current logic) are all filed together at the end, on the final
+revision: filed earlier they occupy the machine to prove nothing new and are outdated by the next commit. A change to the mod or to a
+step a scenario uses makes that scenario new again. Today: `avec-fertilefields` (feature 04, fixed 2026-09-29, never green) is the one to
+play first; `minimal-en` and `minimal-fr` have a green run on `f388858` and are non-regression.
+
 ## Conditions to reach `tested`
 
 All of these, on the revision being tested (`AUDIT.md`, step 9):

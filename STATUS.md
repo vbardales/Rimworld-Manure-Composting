@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: partial
 settings_audit: not_applicable
 mod:          Manure Composting
 packageId:    nelim.manurecomposting
@@ -19,12 +19,13 @@ showcase:     complete
 tested_on:
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
-  - unverified: Play the three passes of TESTING.md in the game (minimal-en, minimal-fr, avec-fertilefields). Nothing of the Pickle suite has run; no report exists.
-  - unverified: Open and read the four @review captures (composter filling and composted, English and French) for raw keys, accented fallback and clipping.
-  - unverified: Read the startup Player.log of each pass; no error, unresolved def or translation from this mod.
+  - unverified: Re-run avec-fertilefields after the 2026-09-29 feature-file fix (Tests/Pickle/Mod/Pickle/Features/04-fertile-fields.feature: the "was patched by mod" step takes the mod's display Name, not its packageId, same quirk as ColorfulCoatsMegafaunaRenew; no ticket filed since the fix). The 2026-09-28 run failed both lines on the old packageId argument, not a patch defect — the failure message itself showed the patch applied and was attributed to this mod. minimal-en and minimal-fr both ran 2026-09-29: 5/6 passed each, 1 skipped as expected (Fertile Fields absent).
+  - unverified: Open and read the @review captures of a green avec-fertilefields pass (that pass covers feature 04 only, no filling/composted captures of its own). The English and French pairs were read 2026-09-29, both clean.
+  - unverified: Read the startup Player.log of a green avec-fertilefields pass; no error, unresolved def or translation from this mod. minimal-en and minimal-fr logs were read 2026-09-29, nothing traced to this mod (minimal-fr's "77 translation errors" warning checked and traced to other mods/base game, not this mod's keys).
   - unverified: Burn It for Fuel has two 1.6 successors (Mlie's Continued 3004932466, Burn It for Fuel 2 3553442151), neither installed nor inspected; the patch may aim at neither (BACKLOG.md).
+  - unverified: French review by Virginie. FRENCH_REVIEW.md generated 2026-09-30 from the working tree; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_b08654aa-d51f-4735-9269-5535095b95bf
-updated:      2026-09-28, audit applied, Pickle suite written, evidence out of git
+updated:      2026-10-02, AUDIT.md reapplied: evidence on disk minified (41 MB to 0.5 MB), no .dds anywhere (ignored), PROTOCOLS-READ.md and TESTING.md pass order refreshed; stage unchanged, nothing ran in game
 ---
 
 # Manure Composting - status
@@ -74,9 +75,7 @@ nothing to propose there (`BACKLOG.md`). No repository is known for Velcroboy's 
 
 ## Evidence
 
-Nothing is tracked. On disk and ignored: `Tests/Results/` holds the latest output of each offline test (six files), `Tests/Pickle/Evidence/` will hold the Pickle reports.
-The text record is `docs/runs/2026-09-28.md`; what to keep and what to delete after a test is written in `TESTING.md`. Test files that earlier commits tracked
-(`Tests/Results/*`) were removed from the index only; history still holds them.
+Nothing is tracked (no .dds, no report in the index; *.dds, `Tests/Pickle/Evidence/`, `Tests/Results/` and `evidence/` are ignored). Minified on disk 2026-10-02: `Tests/Pickle/Evidence/2026-09-28-minimal-en` and `-minimal-fr` keep summary, junit, `log-check.txt` and the two `@review` captures as JPEG; `2026-09-28-avec-fertilefields` keeps summary, junit and log-check only (failed run, superseded by the pending re-run). `docs/runs/2026-09-29.md` is the text record. No `pickle-reports-archive/` folder belongs to this mod.
 
 ## Documents read
 
@@ -277,6 +276,24 @@ NoCompostingMaterial. However, its French DefInjected/JobDef/Jobs_Hygiene.xml co
 meaning for unloading compost, reused by the inherited job. This is an upstream text defect,
 not a newly owned key. Full tracing and EN/FR parity of inherited UI and runtime rendering
 remain unverified; `localization: partial` makes this limit explicit.
+
+### French gender agreement and systematic review (2026-09-30)
+
+All nine owned French fields (the paths listed above) and both inherited DBH JobDef
+reportStrings this mod's French DefInjected overrides (`LoadComposter.reportString`,
+`UnloadComposter.reportString`) were read in full — every French file the mod ships, not a
+pattern search: `Mod/Languages/French/Keyed/ManureComposting.xml` and the four
+`Mod/Languages/French/DefInjected/**/*.xml` files. None contains text that agrees with a
+pawn (no adjective, past participle or noun describing a pawn): every owned and inherited
+string names a building, a job action or a quantity, not a person. The three-segment
+`{PAWN_gender ? ... : ... : ·...}` switch from TRANSLATIONS.md therefore applies to nothing
+in this mod — not a gap, an absence of the trigger condition.
+
+`FRENCH_REVIEW.md` was generated by `_tools/Generate-FrenchReview.ps1` (reads the shipped
+XML directly; Original = English throughout, this mod has no other source language) and
+confirms no French text flags a `{PAWN_gender` marker. `translation_fr` moves to `partial`,
+not `complete`: only Virginie's own reading of `FRENCH_REVIEW.md` can close it. Until then
+`remaining` carries "French review by Virginie" as `unverified`.
 
 ## Dependencies and runtime limits
 
