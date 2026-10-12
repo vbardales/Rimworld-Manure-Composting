@@ -8,8 +8,7 @@ packageId:    nelim.manurecomposting
 repo:         Rimworld-Manure-Composting
 visibility:   public
 detached:     yes
-stage:        done
-workflow_stage: done
+workflow_stage: playTests[1.0.0]
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
 upstream_mod_remotes:
@@ -19,13 +18,14 @@ showcase:     complete
 tested_on:
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
-  - unverified: Re-run avec-fertilefields after the 2026-09-29 feature-file fix (Tests/Pickle/Mod/Pickle/Features/04-fertile-fields.feature: the "was patched by mod" step takes the mod's display Name, not its packageId, same quirk as ColorfulCoatsMegafaunaRenew; no ticket filed since the fix). The 2026-09-28 run failed both lines on the old packageId argument, not a patch defect — the failure message itself showed the patch applied and was attributed to this mod. minimal-en and minimal-fr both ran 2026-09-29: 5/6 passed each, 1 skipped as expected (Fertile Fields absent).
+  - unverified: Ticket 20261012-050740-030-23e9 filed 2026-10-12 (label avec-fertilefields 74a817b), result pending. Re-run avec-fertilefields after the 2026-09-29 feature-file fix (Tests/Pickle/Mod/Pickle/Features/04-fertile-fields.feature: the "was patched by mod" step takes the mod's display Name, not its packageId, same quirk as ColorfulCoatsMegafaunaRenew; no ticket filed since the fix). The 2026-09-28 run failed both lines on the old packageId argument, not a patch defect — the failure message itself showed the patch applied and was attributed to this mod. minimal-en and minimal-fr both ran 2026-09-29: 5/6 passed each, 1 skipped as expected (Fertile Fields absent).
   - unverified: Open and read the @review captures of a green avec-fertilefields pass (that pass covers feature 04 only, no filling/composted captures of its own). The English and French pairs were read 2026-09-29, both clean.
   - unverified: Read the startup Player.log of a green avec-fertilefields pass; no error, unresolved def or translation from this mod. minimal-en and minimal-fr logs were read 2026-09-29, nothing traced to this mod (minimal-fr's "77 translation errors" warning checked and traced to other mods/base game, not this mod's keys).
   - unverified: Burn It for Fuel has two 1.6 successors (Mlie's Continued 3004932466, Burn It for Fuel 2 3553442151), neither installed nor inspected; the patch may aim at neither (BACKLOG.md).
   - unverified: French review by Virginie. FRENCH_REVIEW.md generated 2026-09-30 from the working tree; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
-session:      local_b08654aa-d51f-4735-9269-5535095b95bf
-updated:      2026-10-02, AUDIT.md reapplied: evidence on disk minified (41 MB to 0.5 MB), no .dds anywhere (ignored), PROTOCOLS-READ.md and TESTING.md pass order refreshed; stage unchanged, nothing ran in game
+session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
+updated:      2026-10-12, AUDIT.md applied on 74a817b (working tree: Art/ and Mod/About/Preview.png modified, uncommitted): offline tests replayed green, vocabulary migrated, Pickle ticket 20261012-050740-030-23e9 (avec-fertilefields) queued; nothing ran in game
+protocols_read_sha: 90d6bad3c972d13b710e7d30e52621fe91d273d7
 ---
 
 # Manure Composting - status
