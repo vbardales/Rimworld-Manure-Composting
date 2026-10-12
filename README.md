@@ -36,7 +36,7 @@ composters before removing the mod. Test upgrades on a copy of your save.
 ## Build and checks
 
 Run dotnet build Source/ManureComposting.csproj. Output goes to Mod/Assemblies and
-intermediates stay in this repository's .build directory. The DBH HintPath in the project
+intermediates stay in this repository's build directory. The DBH HintPath in the project
 must point to your local 1.6 BadHygiene.dll; Private=false prevents copying it into this mod.
 
 See [TESTING.md](TESTING.md) (what is tested, the passes, what evidence to keep), [Tests/README.md](Tests/README.md) and
