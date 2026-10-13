@@ -46,3 +46,9 @@ Open work for this mod only.
   (maintainer until 1.4) and Greysuki, and its licence asks only to be told about a derivative or basis. This mod is neither, but the thank-you comment at
   `prepublished` credits all three, in one message on this page. The installed packageId is `jamaicancastle.RF.fertilefields`, unchanged by the continuation.
   Its known issues list Odyssey terrain as unsupported, which this mod does not touch.
+
+## Burn It for Fuel, read from source on 2026-10-13 (GitHub, not the installed Workshop copies)
+
+- Both 1.6 successors keep the def `BurnItForFuel` with `building/fixedStorageSettings/filter/thingDefs`, so `Mod/Patches/BurnItForFuel.xml` matches in both: `jptrrs/BurnItForFuel` (`Defs/Things.xml`, packageId `JPT.BurnItForFuel`, `supportedVersions` 1.6 only, needs Harmony) and `emipa606/JPTBurnItForFuel` (Mlie's continuation, root `Defs/Things.xml` with `WoodLog` and `Chemfuel`, packageId `Mlie.JPTBurnItForFuel`, declares 1.1 to 1.6, deprecated).
+- `loadAfter` names only `JPT.BurnItForFuel`. With Mlie's `Mlie.JPTBurnItForFuel` loaded, load order is not guaranteed, and a patch that runs before the def exists is skipped silently. Proposed change: add `Mlie.JPTBurnItForFuel` to `loadAfter` in `Mod/About/About.xml` (a `Mod/` commit, so it reopens 8.m and `playTests`).
+- Still unverified in game: neither successor was loaded. The live scenario is not written.
