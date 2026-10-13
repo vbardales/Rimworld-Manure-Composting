@@ -2,7 +2,7 @@
 
 ## [1.0.0] - unreleased
 
-First version. Not yet tested in a running game.
+First version. The Pickle passes (English, French, and with Fertile Fields) ran in a headless RimWorld 1.6 and are green; nothing else has been played in a running game.
 
 ### Changed since the first draft
 
