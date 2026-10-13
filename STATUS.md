@@ -23,7 +23,7 @@ remaining:
   - unverified: French review by Virginie. FRENCH_REVIEW.md generated 2026-09-30 from the working tree; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
 updated:      2026-10-12, AUDIT.md applied; avec-fertilefields re-run green (1/1); offline tests green; nothing else ran in game
-protocols_read_sha: 90d6bad3c972d13b710e7d30e52621fe91d273d7
+protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 ---
 
 # Manure Composting - status
