@@ -12,6 +12,10 @@ Open work for this mod only.
   `About.xml` carries no `<url>`, a GitHub search returned nothing, and its Steam page description, read in a browser the same day, links no repository.
   No pull request is owed here; retry only if new evidence turns up.
 
+## Features
+
+- **Manure from non-animal pawns: not handled, by choice of the dependency.** Burok's `Need_Digestion` returns early unless `pawn.RaceProps.Animal` (decompiled `Manure.dll`, 2026-10-13), so humans, children, babies, mechanoids and other non-`Animal` races never produce `Manure`, and this mod, which only consumes `Manure`, has nothing to compost for them. Human waste is DBH's fecal sludge and its own composter. Decide whether a bridge is wanted (for example a patch or WorkGiver feeding colonist waste to the manure composter). Also unverified: whether modded creatures are flagged `Animal`. Both would need a game run.
+
 ## Tests
 
 - Play the three passes of `TESTING.md` (minimal English, minimal French, with Fertile Fields). Nothing in the Pickle suite has run yet.
