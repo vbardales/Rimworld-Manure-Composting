@@ -15,16 +15,17 @@ upstream_mod_remotes:
   - https://github.com/Burakyilmam/Manure (Burok.Manure, source only, no LICENSE file, found 2026-09-28)
 dependencies: declared
 showcase:     complete
-tested_on:
+tested_on:    2026-10-12 (Pickle, headless WSL, RimWorld 1.6: minimal-en and minimal-fr 5/5 + 1 skipped on f388858, avec-fertilefields 1/1 on 74a817b)
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
   - unverified: Burn It for Fuel has two 1.6 successors (Mlie's Continued 3004932466, Burn It for Fuel 2 3553442151), neither installed nor inspected; the patch may aim at neither (BACKLOG.md).
   - unverified: French review by Virginie. FRENCH_REVIEW.md generated 2026-09-30 from the working tree; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-12, AUDIT.md applied; avec-fertilefields re-run green (1/1); offline tests green; nothing else ran in game
+updated:      2026-10-13, code review (8.m) done, echo_review_sha and code_review_sha set, tested_on filled from the Pickle runs
 protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
+code_review_sha: 91bc6e3f2049f825912ddb059420aac0139aa108
 ---
 
 # Manure Composting - status
@@ -33,9 +34,11 @@ Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by
 
 ## Where it stands
 
-`stage` is **done**: the offline tests were replayed and are green, and the Pickle suite is written and justified. **Nothing has run in a game**, so `tested` is
-not claimed and `tested_on` stays empty. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public, the only
+`workflow_stage` is `playTests[1.0.0]`: the three Pickle passes of `TESTING.md` ran in game and are green (`docs/runs/`), and the code review of 8.m is done (`code_review_sha`, 2026-10-13: three C# files and the patches read, no defect; notes below). What blocks `shootGallery`: the French review by Virginie, and the Burn It for Fuel patch, still unplayed. The one live-game claim is `tested_on`.
+The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public, the only
 remote). A private Workshop item exists (`0.1.0`, `Mod/About/PublishedFileId.txt`); `1.0.0` stays unreleased above it in the CHANGELOG.
+
+Code review notes (2026-10-13), no change made: `Building_ManureComposter.GetInspectString` calls `Replace` on DBH's string without a null guard (DBH returns a non-empty string in the unfermented state; the pass captures show it); the development-control label is matched by its English text "Debug: Set progress to 1", so a reworded DBH label leaves the control untranslated, never broken.
 
 `stage` codes, as `AUDIT.md` step 12 defines them: `port` before `horsMonoRepo`; `showcase` from `Preview générée` to `l10n`; then `preTest`, `done`, `tested`,
 `published`. `prepublished` has no code of its own: it is recorded in `workflow_stage` when it applies.
