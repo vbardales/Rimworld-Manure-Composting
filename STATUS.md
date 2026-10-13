@@ -24,6 +24,7 @@ remaining:
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
 updated:      2026-10-12, AUDIT.md applied; avec-fertilefields re-run green (1/1); offline tests green; nothing else ran in game
 protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
+echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
 ---
 
 # Manure Composting - status
