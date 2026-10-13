@@ -42,3 +42,5 @@ PROMPT_*.md
 Thumbs.db
 desktop.ini
 .DS_Store
+
+Art/.render/
