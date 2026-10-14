@@ -15,17 +15,17 @@ upstream_mod_remotes:
   - https://github.com/Burakyilmam/Manure (Burok.Manure, source only, no LICENSE file, found 2026-09-28)
 dependencies: declared
 showcase:     complete
-tested_on:    2026-10-12 (avec-fertilefields 1/1 on 74a817b); minimal-en and minimal-fr 5 passed + 1 skipped each, 2026-09-28 on f388858. All Pickle, headless WSL, RimWorld 1.6. Mod/ changed since (8c2c4ef, c4e5d0f): to replay
+tested_on:    2026-10-14 (Pickle, headless WSL, RimWorld 1.6, f4af871: minimal-en 5+1 skipped, minimal-fr 5+1 skipped, avec-fertilefields 1/1; `docs/runs/2026-10-14.md`)
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
   - unverified: Burn It for Fuel has two 1.6 successors (Mlie's Continued 3004932466, Burn It for Fuel 2 3553442151), neither installed nor inspected; the patch may aim at neither (BACKLOG.md).
   - unverified: French review by Virginie. FRENCH_REVIEW.md generated 2026-09-30 from the working tree; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-13, code review done on 91bc6e3; Mod/ then changed twice (description text, loadAfter), so 8.m and playTests are reopened; offline checks and build replayed green
+updated:      2026-10-14, three Pickle passes green on f4af871, code review of Mod/ diff since 91bc6e3 done
 protocols_read_sha: 2f4e0002e2543fcde57999c51ff8b2f0dfc8efdb
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
-code_review_sha: 91bc6e3f2049f825912ddb059420aac0139aa108  # stale: Mod/ changed after it (8c2c4ef, c4e5d0f)
+code_review_sha: f4af8719c5148a1751bd417aa699caa350e3f0f1
 ---
 
 # Manure Composting - status
@@ -34,7 +34,7 @@ Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by
 
 ## Where it stands
 
-`workflow_stage` is `playTests[1.0.0]`: the three Pickle passes of `TESTING.md` ran in game and are green (`docs/runs/`), and the code review of 8.m is done (`code_review_sha`, 2026-10-13: three C# files and the patches read, no defect; notes below). What blocks `shootGallery`: the French review by Virginie, and the Burn It for Fuel patch, still unplayed. The one live-game claim is `tested_on`.
+`workflow_stage` is `playTests[1.0.0]`: the three Pickle passes of `TESTING.md` ran in game on `f4af871` and are green (`docs/runs/2026-10-14.md`), the captures were opened, and the code review of 8.m covers `Source/` and `Mod/` up to `code_review_sha` (the `Mod/` diff since `91bc6e3` is a typo in the composter description and a `loadAfter` entry: no defect). What blocks `shootGallery`: the French review by Virginie (and the English reading, 8.b), and the Burn It for Fuel scenario, still unplayed.
 The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public, the only
 remote). A private Workshop item exists (`0.1.0`, `Mod/About/PublishedFileId.txt`); `1.0.0` stays unreleased above it in the CHANGELOG.
 
