@@ -66,6 +66,7 @@ powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Check-Steps.ps1
 | minimal-en | none (bare pass) | English | 01, 02, 03 (04 skips: Fertile Fields absent) | The mod and its two hard dependencies work alone, and load cleanly without Fertile Fields |
 | minimal-fr | none (bare pass) | French | 01, 02, 03 | The same in French; the inspect text and the development control read as translated |
 | avec-fertilefields | `wsl-deps.avec-fertilefields.map` | English | 04 (`-Filter 04-fertile-fields`) | The one optional integration claimed, beside the real Fertile Fields |
+| avec-burnitforfuel | `wsl-deps.avec-burnitforfuel.map` | English | 05 (`-Filter 05-burn-it-for-fuel`) | The second optional integration, beside the 1.6 build of Burn It for Fuel (Workshop 3553442151) |
 
 `wsl-ids.map` gives the Workshop ids of the two hard dependencies the shared staging table does not know (Burok's Manure, Dubs Bad
 Hygiene). It is read in every pass and activates nothing by itself. Each pass is one request to the queue: the mod is staged when its
