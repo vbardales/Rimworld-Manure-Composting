@@ -15,7 +15,7 @@ Never released, so these were folded into 1.0.0 (an earlier draft of this file l
 - Add the final source-code link and remove unverified live-testing claims.
 - Keep build intermediates within the standalone repository.
 - Add executable patch/WorkGiver, text-adapter and resource tests, plus written in-game scenarios.
-- Final validation in a running game remains pending.
+- Further in-game validation remains pending.
 
 ### Added
 
