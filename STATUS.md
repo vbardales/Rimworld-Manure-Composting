@@ -21,7 +21,7 @@ remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
   - unverified: Burn It for Fuel in a live game. The patch lands in the real def of "Burn It for Fuel 2" (3553442151), proved offline (46 contract checks). No Pickle scenario can see it: that mod removes its own `BurnItForFuel` def at startup (ticket `20261014-165105-537-d7a7` failed with "no def named", feature 05 deleted, reasoning in `TESTING.md`). Whether the burner then offers dried manure by default is the mod's own `ValidateAsFuel`, not checked. Mlie's continuation (3004932466) not installed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-15, Virginie validated French and English (FRENCH_REVIEW.md, revision ec6d814, no correction): 7.g met, stage playTests[1.0.0]
+updated:      2026-10-15, French reviewed and validated by Virginie (FRENCH_REVIEW.md line filled, translation_fr complete); stage unchanged
 protocols_read_sha: 1287089cf2f8e5f788811012d4fe080207e69b96
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
 code_review_sha: d1b79cdbffb23d23c9e26883d72ec3fe7bb2950a
