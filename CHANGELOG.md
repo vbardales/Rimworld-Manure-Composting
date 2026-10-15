@@ -2,7 +2,7 @@
 
 ## [1.0.0] - unreleased
 
-First version. The Pickle passes (English, French, and with Fertile Fields) ran in a headless RimWorld 1.6 and are green; nothing else has been played in a running game.
+First version. The Pickle passes (English, French, and with Fertile Fields) ran on a headless RimWorld 1.6 instance and are green; nothing else has been played in a running game.
 
 ### Changed since the first draft
 
@@ -10,7 +10,7 @@ Never released, so these were folded into 1.0.0 (an earlier draft of this file l
 
 - Install 128x128 icon and 896x504 preview; preserve originals and reproducible composition in Art/.
 - Add French coverage and translated development control, with correct manure contents and DBH loading/unloading reports.
-- Correct the cold-temperature description: DBH slows composting; extreme temperatures can ruin contents.
+- Correct the cold-temperature description: cold slows composting; extreme temperatures can ruin contents.
 - Preserve DBH behavior and saved state through a text-only building subclass.
 - Add the final source-code link and remove unverified live-testing claims.
 - Keep build intermediates within the standalone repository.
