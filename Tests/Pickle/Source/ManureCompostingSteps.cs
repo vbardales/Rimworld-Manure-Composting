@@ -170,5 +170,34 @@ namespace ManureComposting.PickleSteps
             ctx.Assert(members.Count == 2, "the dropdown holds " + members.Count + " buildings, expected exactly the two composters: " + string.Join(", ", members.ToArray()));
             ctx.Assert(DefDatabase<DesignatorDropdownGroupDef>.GetNamedSilentFail(DropdownDef) != null, "the dropdown group def " + DropdownDef + " is not loaded");
         }
+
+        private static ThingFilter BurnItForFuelFilter(PickleContext ctx, string field)
+        {
+            // "Burn It for Fuel 2" reads its def BurnItForFuel at startup and then removes it, so only its
+            // settings object is left to observe: read it through reflection, no compile-time reference.
+            var modType = AppDomain.CurrentDomain.GetAssemblies()
+                .Select(a => a.GetType("BurnItForFuel.BurnItForFuelMod", false))
+                .FirstOrDefault(t => t != null);
+            ctx.Require(modType != null, "the type BurnItForFuel.BurnItForFuelMod is not loaded: Burn It for Fuel 2 is not in this pass");
+            var settings = modType.GetField("settings").GetValue(null);
+            ctx.Require(settings != null, "Burn It for Fuel 2 has no settings object yet");
+            var filter = settings.GetType().GetField(field).GetValue(settings) as ThingFilter;
+            ctx.Require(filter != null, "no ThingFilter named " + field + " in the settings of Burn It for Fuel 2");
+            return filter;
+        }
+
+        [Then("Manure Composting: Burn It for Fuel's default fuels allow {string}")]
+        public void BurnerDefaultFuelsAllow(PickleContext ctx, string defName)
+        {
+            var def = DefDatabase<ThingDef>.GetNamedSilentFail(defName);
+            ctx.Require(def != null, "no ThingDef named " + defName);
+            var defaults = BurnItForFuelFilter(ctx, "defaultFuelSettings");
+            var master = BurnItForFuelFilter(ctx, "masterFuelSettings");
+            ctx.Attach("default-fuels", string.Join(", ", defaults.AllowedThingDefs.Select(d => d.defName).ToArray()));
+            ctx.Attach("master-fuels", string.Join(", ", master.AllowedThingDefs.Select(d => d.defName).ToArray()));
+            ctx.Attach("validate-as-fuel", "ValidateAsFuel is not called here; the default filter is what the mod kept after calling it");
+            ctx.Assert(defaults.Allows(def), "the default fuels of Burn It for Fuel 2 do not allow " + defName + " (see attachments default-fuels)");
+            ctx.Assert(master.Allows(def), "the master fuels of Burn It for Fuel 2 do not allow " + defName + " (see attachments master-fuels)");
+        }
     }
 }
