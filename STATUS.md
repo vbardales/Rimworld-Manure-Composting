@@ -19,7 +19,7 @@ tested_on:    2026-10-14 (Pickle, headless WSL, RimWorld 1.6, f4af871: minimal-e
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
-  - unverified: Burn It for Fuel scenario. Both 1.6 successors were read (jptrrs "Burn It for Fuel 2" 3553442151, installed; Mlie's Continued 3004932466, not installed, `loadAfter` added): both keep the def `BurnItForFuel`, so the patch matches. Feature `05-burn-it-for-fuel` and pass `avec-burnitforfuel` (3553442151 only) exist; ticket `20261014-165105-537-d7a7` on `dae69e7` is filed, result pending. Mlie's build is not played (BACKLOG.md).
+  - unverified: Burn It for Fuel in a live game. The patch lands in the real def of "Burn It for Fuel 2" (3553442151), proved offline (46 contract checks). No Pickle scenario can see it: that mod removes its own `BurnItForFuel` def at startup (ticket `20261014-165105-537-d7a7` failed with "no def named", feature 05 deleted, reasoning in `TESTING.md`). Whether the burner then offers dried manure by default is the mod's own `ValidateAsFuel`, not checked. Mlie's continuation (3004932466) not installed.
   - unverified: French review by Virginie. FRENCH_REVIEW.md regenerated 2026-10-14 from clean revision c8c6517, which matches the French in Mod/; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
 updated:      2026-10-14, three Pickle passes green on f4af871, code review of Mod/ diff since 91bc6e3 done
@@ -34,7 +34,7 @@ Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by
 
 ## Where it stands
 
-`workflow_stage` is `playTests[1.0.0]`: the three Pickle passes of `TESTING.md` ran in game on `f4af871` and are green (`docs/runs/2026-10-14.md`), the captures were opened, and the code review of 8.m covers `Source/` and `Mod/` up to `code_review_sha` (the `Mod/` diff since `91bc6e3` is a typo in the composter description and a `loadAfter` entry: no defect). What blocks `shootGallery`: the French and English reading by Virginie (8.b), and the result of the `avec-burnitforfuel` ticket (8.f).
+`workflow_stage` is `playTests[1.0.0]`: the three Pickle passes of `TESTING.md` ran in game on `f4af871` and are green (`docs/runs/2026-10-14.md`), the captures were opened, and the code review of 8.m covers `Source/` and `Mod/` up to `code_review_sha` (the `Mod/` diff since `91bc6e3` is a typo in the composter description and a `loadAfter` entry: no defect). What blocks `shootGallery`: the French and English reading by Virginie (8.b), and the Burn It for Fuel point (8.f): justified in `TESTING.md` as not playable, Virginie to accept or ask for a manual check.
 The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public, the only
 remote). A private Workshop item exists (`0.1.0`, `Mod/About/PublishedFileId.txt`); `1.0.0` stays unreleased above it in the CHANGELOG.
 

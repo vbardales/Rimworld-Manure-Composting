@@ -63,6 +63,13 @@ Assert ($partial.SelectNodes('//thingDefs').Count -eq 0) 'Incomplete optional fi
 [xml]$burn='<Defs><ThingDef><defName>BurnItForFuel</defName><building><fixedStorageSettings><filter><thingDefs><li>WoodLog</li></thingDefs></filter></fixedStorageSettings></building></ThingDef></Defs>'
 Apply-Patches $burn
 Assert ($burn.SelectNodes('//thingDefs/li[text()="DryManure"]').Count -eq 1) 'Compatible optional burner receives dried manure'
+# The real def of "Burn It for Fuel 2" (Workshop 3553442151, 1.6), when installed: the patch must land in its filter.
+$realBurn="$Workshop/3553442151/Defs/Things.xml"
+if(Test-Path $realBurn){
+ [xml]$real=Get-Content $realBurn -Raw -Encoding UTF8
+ Apply-Patches $real
+ Assert ($real.SelectNodes('//ThingDef[defName="BurnItForFuel"]//thingDefs/li[text()="DryManure"]').Count -eq 1) 'Real Burn It for Fuel 2 def receives dried manure'
+}
 # Exercise the shipped WorkGivers against the actual game DefDatabase, outside a running map.
 $thingType=$game.GetType('Verse.ThingDef',$true)
 # A metadata-only Def avoids Unity texture creation; its name is the only field used here.

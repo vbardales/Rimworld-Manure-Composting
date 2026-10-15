@@ -1,6 +1,6 @@
 # Manure Composting Pickle suite
 
-A companion mod, `nelim.manurecomposting.pickletests`, development only and never shipped in `Mod/`. It holds five features and one step assembly. It covers
+A companion mod, `nelim.manurecomposting.pickletests`, development only and never shipped in `Mod/`. It holds four features and one step assembly. It covers
 only what a running game can show: a pawn finding the second composter, the architect dropdown, the inspect text in the language of the game, a
 reload, and Fertile Fields' recipes patched in a real load. Everything a test outside the game can prove stays in `../` (see
 [../../TESTING.md](../../TESTING.md) for the split and for what is deliberately left out).
@@ -11,7 +11,6 @@ reload, and Fertile Fields' recipes patched in a real load. Everything a test ou
 | `02-save-and-reload` | minimal-en, minimal-fr |
 | `03-review-inspect-text` (`@review`) | minimal-en, minimal-fr |
 | `04-fertile-fields` (`@requires:jamaicancastle.RF.fertilefields`) | avec-fertilefields |
-| `05-burn-it-for-fuel` (`@requires:JPT.BurnItForFuel`) | avec-burnitforfuel |
 
 The step assembly is committed under `Mod/Pickle/Assemblies/` because the staging copies the folder as it is. Rebuild it after any change of
 `Source/`, then check the vocabulary before filing a ticket:

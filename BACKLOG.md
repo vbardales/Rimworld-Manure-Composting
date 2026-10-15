@@ -52,3 +52,7 @@ Open work for this mod only.
 - Both 1.6 successors keep the def `BurnItForFuel` with `building/fixedStorageSettings/filter/thingDefs`, so `Mod/Patches/BurnItForFuel.xml` matches in both: `jptrrs/BurnItForFuel` (`Defs/Things.xml`, packageId `JPT.BurnItForFuel`, `supportedVersions` 1.6 only, needs Harmony) and `emipa606/JPTBurnItForFuel` (Mlie's continuation, root `Defs/Things.xml` with `WoodLog` and `Chemfuel`, packageId `Mlie.JPTBurnItForFuel`, declares 1.1 to 1.6, deprecated).
 - `loadAfter` names only `JPT.BurnItForFuel`. With Mlie's `Mlie.JPTBurnItForFuel` loaded, load order is not guaranteed, and a patch that runs before the def exists is skipped silently. Proposed change: add `Mlie.JPTBurnItForFuel` to `loadAfter` in `Mod/About/About.xml` (a `Mod/` commit, so it reopens 8.m and `playTests`).
 - Still unverified in game: neither successor was loaded. The live scenario is not written.
+
+## Burn It for Fuel, live run of 2026-10-14
+
+- The Pickle scenario `05-burn-it-for-fuel` failed (`no def named 'BurnItForFuel'`) and was deleted: "Burn It for Fuel 2" removes that def at startup (`Initializer.SetDefaultFuels`). The offline contracts now apply the patch to its real `Things.xml`. Open question for the owner: accept this as the evidence for 8.f, or check by hand in a game that the burner lists dried manure among its default fuels (needs `ValidateAsFuel` to pass for `DryManure`).

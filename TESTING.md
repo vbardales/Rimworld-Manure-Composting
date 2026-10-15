@@ -43,11 +43,7 @@ These rows of `TEST_SCENARIOS.md` end as *not applicable*, each with its reason,
   save has ever held another version. Nothing to upgrade from.
 - **A real restart between a write and a read.** The mod owns no serialized field; the two it saves are DBH's, and scenario `02`
   reloads them in process. A restart would add nothing the mod owns.
-- **Burn It for Fuel.** The installed `JPT.BurnItForFuel` declares 1.1 to 1.3 and cannot load in 1.6. **Two 1.6 successors exist, found on 2026-09-28
-  on their Steam pages and not yet inspected**: Mlie's deprecated "(Continued)" (`3004932466`, declares 1.6) and jptrrs's rewrite "Burn It for Fuel 2"
-  (`3553442151`, 1.6, a different design with a per-building fuel tab). Whether either keeps the def `BurnItForFuel` and the storage filter the patch
-  targets is unknown, so the patch may be inert or aimed at the wrong mod. Until `BACKLOG.md` is done, the patch is exercised only against a synthetic
-  target in the offline contracts, and the live scenario is **unverified**, not justified as not applicable.
+- **Burn It for Fuel.** Not playable in Gherkin, by construction. "Burn It for Fuel 2" (`3553442151`, 1.6; the older `1823276856` is 1.1 to 1.3 and cannot load) reads the filter of its def `BurnItForFuel` at startup to set its default fuels, then removes that def from the `DefDatabase` (`Initializer.SetDefaultFuels`, decompiled 2026-10-15). A run on 2026-10-14 (ticket `20261014-165105-537-d7a7`, `dae69e7`) loaded the mod and failed with `no def named 'BurnItForFuel' in any database`: no step can see the def or its patch in a live game. What is proven instead, offline: `Tests/Test-RuntimeContracts.ps1` applies the real patch engine to the real `Things.xml` of `3553442151` and finds `DryManure` in the filter (and to a synthetic def, and to an incomplete one). That the burner then offers dried manure as a default fuel depends on the mod's `ValidateAsFuel`, not on this patch: **unverified in game**. Mlie's continuation (`3004932466`) is not installed and not tested.
 - **Settings, MainButtons shortcut, RIMMSQOL.** The mod has none (offline check above): no page, no shortcut, no integration to claim.
 - **DLC absent, declared incompatibility.** The mod uses no DLC and declares no `incompatibleWith`.
 
@@ -66,7 +62,6 @@ powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Check-Steps.ps1
 | minimal-en | none (bare pass) | English | 01, 02, 03 (04 skips: Fertile Fields absent) | The mod and its two hard dependencies work alone, and load cleanly without Fertile Fields |
 | minimal-fr | none (bare pass) | French | 01, 02, 03 | The same in French; the inspect text and the development control read as translated |
 | avec-fertilefields | `wsl-deps.avec-fertilefields.map` | English | 04 (`-Filter 04-fertile-fields`) | The one optional integration claimed, beside the real Fertile Fields |
-| avec-burnitforfuel | `wsl-deps.avec-burnitforfuel.map` | English | 05 (`-Filter 05-burn-it-for-fuel`) | The second optional integration, beside the 1.6 build of Burn It for Fuel (Workshop 3553442151) |
 
 `wsl-ids.map` gives the Workshop ids of the two hard dependencies the shared staging table does not know (Burok's Manure, Dubs Bad
 Hygiene). It is read in every pass and activates nothing by itself. Each pass is one request to the queue: the mod is staged when its
