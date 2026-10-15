@@ -56,3 +56,7 @@ Open work for this mod only.
 ## Burn It for Fuel, live run of 2026-10-14
 
 - The Pickle scenario `05-burn-it-for-fuel` failed (`no def named 'BurnItForFuel'`) and was deleted: "Burn It for Fuel 2" removes that def at startup (`Initializer.SetDefaultFuels`). The offline contracts now apply the patch to its real `Things.xml`. Open question for the owner: accept this as the evidence for 8.f, or check by hand in a game that the burner lists dried manure among its default fuels (needs `ValidateAsFuel` to pass for `DryManure`).
+
+## Gallery (shootGallery)
+
+- Nothing is shot. `PUBLICATION.md` holds the plan (one working day at the barn, seven images, four subtitled) and the subtitle table. To do: write the gallery feature (one Scenario per image) with its own pass map on the Sanctuary tools, read the empty places first (`SANCTUAIRE-LIEUX.md`), settle Nelim's outfit, hair and expressions against the game files, open every capture, then lay the subtitles with `scripts/Add-Subtitle.ps1` from `Art/Gallery-clean/`.
