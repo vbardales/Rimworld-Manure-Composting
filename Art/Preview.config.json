@@ -18,6 +18,7 @@
   ],
   "layout": "panel",
   "panelAnchor": "top-left",
+  "modIconSource": "ModIcon-source.png",
   "backgroundFile": "Preview-source.png",
   "backgroundPosition": "center",
   "backgroundSize": "cover",
