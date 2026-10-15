@@ -1,14 +1,14 @@
 ---
 localization: complete
-translation_en: unchecked
-translation_fr: partial
+translation_en: complete
+translation_fr: complete
 settings_audit: not_applicable
 mod:          Manure Composting
 packageId:    nelim.manurecomposting
 repo:         Rimworld-Manure-Composting
 visibility:   public
 detached:     yes
-workflow_stage: writeTests[1.0.0]
+workflow_stage: playTests[1.0.0]
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
 upstream_mod_remotes:
@@ -20,10 +20,9 @@ workshop:     3806768526 (private item "Manure Composting", visibility hidden, p
 remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
   - unverified: Burn It for Fuel in a live game. The patch lands in the real def of "Burn It for Fuel 2" (3553442151), proved offline (46 contract checks). No Pickle scenario can see it: that mod removes its own `BurnItForFuel` def at startup (ticket `20261014-165105-537-d7a7` failed with "no def named", feature 05 deleted, reasoning in `TESTING.md`). Whether the burner then offers dried manure by default is the mod's own `ValidateAsFuel`, not checked. Mlie's continuation (3004932466) not installed.
-  - unverified: French and English review by Virginie (English description words changed 2026-10-14). FRENCH_REVIEW.md regenerated 2026-10-14 from clean revision c8c6517, which matches the French in Mod/; every French file was read in full and none needs the {PAWN_gender ...} switch (no text agrees with a pawn). No session marks its own French reviewed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-15, audit replayed from setupRepo to playTests: retained state writeTests[1.0.0] (7.g, French and English not yet read by Virginie); delivered ModIcon.png regenerated
-protocols_read_sha: d5508417e908c752c87ea6512f94e22939e23fe4
+updated:      2026-10-15, Virginie validated French and English (FRENCH_REVIEW.md, revision ec6d814, no correction): 7.g met, stage playTests[1.0.0]
+protocols_read_sha: 1287089cf2f8e5f788811012d4fe080207e69b96
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
 code_review_sha: d1b79cdbffb23d23c9e26883d72ec3fe7bb2950a
 ---
@@ -35,9 +34,9 @@ Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by
 
 ## Where it stands
 
-`workflow_stage` is `writeTests[1.0.0]` (audit of 2026-10-15, replayed against the current protocols). The first failing exit criterion is **7.g**: `translation_fr` is `partial` (Virginie has not read the French) and `translation_en` is `unchecked` (English description words changed on 2026-10-14, soil to fertiliser, and await her reading). TRANSLATIONS.md: only `complete` in all three fields permits `playTests`. Everything later was kept as independent evidence: the three Pickle passes are green on `f4af871` (`docs/runs/2026-10-14.md`, captures opened), the code review (8.m) is done, the Burn It for Fuel point is justified in `TESTING.md`. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public). A private Workshop item exists (`0.1.0`); `1.0.0` stays unreleased above it in the CHANGELOG.
+`workflow_stage` is `playTests[1.0.0]`. Virginie validated the French and the English on 2026-10-15 (`je valide`, no correction, verbs unchanged: "gâcher" kept), so 7.g is met and `translation_fr` and `translation_en` are `complete`. Earlier replay of the audit (2026-10-15) had held the stage at `writeTests` for that reason only. The three Pickle passes are green on `f4af871` (`docs/runs/2026-10-14.md`, captures opened), the code review (8.m) is done, the Burn It for Fuel point is justified in `TESTING.md`. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public). A private Workshop item exists (`0.1.0`); `1.0.0` stays unreleased above it in the CHANGELOG.
 
-To return to `playTests[1.0.0]`: Virginie reads `FRENCH_REVIEW.md` (French and English columns), then `translation_fr` and `translation_en` become `complete` with her review line below. Then 8.f needs her answer on Burn It for Fuel (offline proof accepted, or a manual check).
+Open for 8.f: Virginie answers on Burn It for Fuel (offline proof accepted, or a manual check in a live game). Then `shootGallery` (gallery not started, plan in `PUBLICATION.md`).
 
 ## Audit of 2026-10-15
 
@@ -50,8 +49,8 @@ On `6a90b1b` plus `104c596` (clean tree, protocols at `e733386`). Protocols read
 | 3 code | Validated | `dotnet build` 0 errors, DLL SHA256 `FAA89582...9C62` unchanged. `CHANGELOG.md` heads `## [1.0.0] - unreleased` rather than `## [Unreleased]`: left as the version it targets |
 | 4 declareDependencies | Validated | Burok.Manure and Dubwise.DubsBadHygiene in `modDependencies` with Workshop ids; `loadAfter` names Fertile Fields (`jamaicancastle.RF.fertilefields`) and both Burn It for Fuel packageIds (`JPT.BurnItForFuel`, `Mlie.JPTBurnItForFuel`, added 2026-10-14). No `LoadFolders`, none needed; no DLC; patches guarded on the def. `Check-XmlFields` (6 files), `Check-XmlClasses` (9 types), `Check-DefRefs` replayed green. `sort-load-order.py` not run |
 | 5 settings | Validated, `not_applicable` | No settings class, no `MainButtonDef`, no page, no shortcut (`test_resources.py`, 91/91). Nothing to configure: capacity, temperature and pace are DBH's |
-| 6 localize | Validated except the reading | Two Keyed keys per language and the nine owned Def fields in French; `Check-DefInjected` 11 keys, 0 errors (dependencies passed as targets). Plurals: the only counted value is `{0}/{1}` (mass noun over capacity), no `.One` and `.Many`. No French text agrees with a pawn, so no `{PAWN_gender}` switch. `FRENCH_REVIEW.md` regenerated from `c8c6517`. **Virginie's reading is pending** (6.g) |
-| 7 writeTests | **Fails at 7.g** | 7.a `TEST_SCENARIOS.md` (the -18 and 58 degree margin is DBH's `minSafe + 2` and `maxSafe - 2`, checked in `WorkGiver_FillComposter`); 7.b to 7.f replayed: `Test-RuntimeContracts.ps1` 46/46, `Test-TextAdapter.ps1` 20/20, `test_resources.py` 91/91, `Check-Steps.ps1` 62 step lines. 7.g not met: French and English not yet read |
+| 6 localize | Validated | Two Keyed keys per language and the nine owned Def fields in French; `Check-DefInjected` 11 keys, 0 errors (dependencies passed as targets). Plurals: the only counted value is `{0}/{1}` (mass noun over capacity), no `.One` and `.Many`. No French text agrees with a pawn, so no `{PAWN_gender}` switch. `FRENCH_REVIEW.md` regenerated from `c8c6517`. Virginie read it 2026-10-15, no correction (6.g) |
+| 7 writeTests | Validated (7.g met 2026-10-15) | 7.a `TEST_SCENARIOS.md` (the -18 and 58 degree margin is DBH's `minSafe + 2` and `maxSafe - 2`, checked in `WorkGiver_FillComposter`); 7.b to 7.f replayed: `Test-RuntimeContracts.ps1` 46/46, `Test-TextAdapter.ps1` 20/20, `test_resources.py` 91/91, `Check-Steps.ps1` 62 step lines. 7.g: French and English read by Virginie, no correction |
 | 8 playTests | Evidence kept, not claimed | Passes `minimal-en`, `minimal-fr`, `avec-fertilefields` green on `f4af871`, captures opened. Burn It for Fuel cannot be played (the mod removes its own def at startup, ticket `20261014-165105-537-d7a7`); proved offline against the real `Things.xml`. Code review done (`code_review_sha`) |
 
 ## Settings audit
@@ -60,7 +59,7 @@ Date 2026-10-15, revision `6a90b1b`. Result `not_applicable`. Source inspection 
 
 ## Translation audit
 
-Date 2026-10-15, revision `6a90b1b`. French lives in `Mod/Languages/French/Keyed/ManureComposting.xml` and four `DefInjected` files (`DesignatorDropdownGroupDef`, `ThingDef`, `WorkGiverDef`, `JobDef`); English is the Def values plus `Mod/Languages/English/Keyed/ManureComposting.xml`. The French `JobDef` file overrides two DBH report strings (`LoadComposter`, `UnloadComposter`), which also corrects DBH's own composter while this mod is loaded. Every French file was read in full: no text agrees with a pawn, nothing to flag. In game, `minimal-fr` showed correct accents and no raw key (2026-10-14). Review by Virginie: none yet. `FRENCH_REVIEW.md` is generated with `-ExtraDefs <DBH 1.6 Defs folder>` so the two DBH job reports show their English. Changed since the 2026-09-30 reading: the English words "fertiliser that sewage produces" and "a source of fertiliser" (ThingDef and About), 2026-10-14.
+Date 2026-10-15, revision `6a90b1b`. French lives in `Mod/Languages/French/Keyed/ManureComposting.xml` and four `DefInjected` files (`DesignatorDropdownGroupDef`, `ThingDef`, `WorkGiverDef`, `JobDef`); English is the Def values plus `Mod/Languages/English/Keyed/ManureComposting.xml`. The French `JobDef` file overrides two DBH report strings (`LoadComposter`, `UnloadComposter`), which also corrects DBH's own composter while this mod is loaded. Every French file was read in full: no text agrees with a pawn, nothing to flag. In game, `minimal-fr` showed correct accents and no raw key (2026-10-14). Review by Virginie: 2026-10-15, revision `ec6d814` (Mod/ unchanged since), French and English read from `FRENCH_REVIEW.md`, corrections requested: none. `FRENCH_REVIEW.md` is generated with `-ExtraDefs <DBH 1.6 Defs folder>` so the two DBH job reports show their English. Changed since the 2026-09-30 reading: the English words "fertiliser that sewage produces" and "a source of fertiliser" (ThingDef and About), 2026-10-14.
 
 ## Dependencies
 
