@@ -253,3 +253,30 @@ holds this mod:
 `alive` no licence but a living source, `forbidden` a written refusal, `original` owing nothing
 to anyone — not a name, not an idea traceable to one mod, not a value derived from its assets.
 
+
+# Audits moved out of STATUS.md on 2026-10-15
+
+Kept as written (old vocabulary: `done`, `preTest`...).
+
+## Audit of 2026-10-12
+
+On `39b0f9c` (working tree: `Art/` and `Mod/About/Preview.png` modified by another job, not committed here). Vocabulary migrated: `done` is now `playTests[1.0.0]`, `stage` removed. Replayed today: `Test-RuntimeContracts.ps1` 40/40, `Test-TextAdapter.ps1` 20/20, `test_resources.py` 91/91 (run with `uv run --no-project python`), `Check-Steps.ps1` OK; `dotnet build` 0 warnings, DLL SHA256 unchanged (`FAA89582...9C62`). Hygiene (AGENTS.md, "Mod root clean"): `.build/` renamed `build/` (both `Directory.Build.props`, `.gitignore`, `Art/render.cjs`); `_tools/` deleted, `FRENCH_REVIEW.md` regenerated with the shared `scripts/Make-FrenchReview.ps1` (the 2026-09-30 reading of every French file still stands, only the generator changed); rows of `scripts/LOCAL_SCRIPTS.md` justified. Pickle: ticket `20261012-050740-030-23e9` (avec-fertilefields) ran the same day: 1/1 passed, exit 0 (evidence minified to summary, junit, log-check). Not rerun today: XML checkers (`Check-XmlFields`, `Check-XmlClasses`, `Check-DefRefs`) and the dependency, settings and translation transitions (4 to 6), kept from 2026-09-28 and 2026-09-30 and not replayed against the current protocols.
+
+## Audit of 2026-09-28
+
+Audited on `68aa615` plus the working-tree changes of the day. **Entry state: `preTest`, not the `done` this file declared**, because `preTest -> done` failed: no
+`Tests/Pickle/`, no `TESTING.md`, and no sentence justifying the absence of Pickle suites (`AUDIT.md`: silence is not a justification). Every transition before it held.
+The defect was then corrected in the same session, by the session that holds the mod, and the transition was audited again: `done`.
+
+| Transition | Result | Evidence |
+| --- | --- | --- |
+| dansMonoRepo -> horsMonoRepo | Validated | Own git repository on `main`, one remote, GitHub repository public; STATUS, README, ATTRIBUTION, LICENSE, CHANGELOG in English; the copies in `Mod/` equal the root ones |
+| horsMonoRepo -> ModIcon | Validated | `Mod/About/ModIcon.png` 128x128, 22204 bytes; original in `Art/ModIcon-original.png`. Not regenerated (owner's job only) |
+| ModIcon -> Preview | Validated | `Mod/About/Preview.png` 896x504, 561109 bytes, under 1 MB |
+| Preview -> preOptions | Validated | Description in English; ends with `[url=...]Source code on GitHub[/url]` to the exact repository (`test_resources.py`); name has no prefix, suffix or linking word to treat |
+| preOptions -> options | Validated, `not_applicable` | No settings class, no `MainButtonDef`, no declared incompatibility, executable in `test_resources.py` (91 checks) |
+| options -> l10n | Validated against the current TRANSLATIONS.md | Two Keyed keys per language, nine owned Def fields in French, parameters and DefInjected paths checked. **Plurals (rule of 2026-09-25):** the only number shown through a key is `MC_ContainsManure` (`{0}/{1}`, an amount of a mass noun over a capacity), not a counted noun phrase, so it needs no `.One` and `.Many` |
+| l10n -> preTest | Validated | `modDependencies` are Burok.Manure and Dubwise.DubsBadHygiene, both with Workshop ids; `loadAfter` names Fertile Fields and Burn It for Fuel; no `LoadFolders` and none needed; the optional patches are guarded on the def. Redone on 2026-09-28 by reading `About.xml`, the defs and the patches |
+| preTest -> done | **Failed at entry, corrected, validated** | Offline tests replayed 2026-09-28 (details in `docs/runs/2026-09-28.md`); the DLL rebuilds byte-identical; the Pickle suite is written in `Tests/Pickle/` with its scope justified in `TESTING.md`, its vocabulary checked offline |
+| done -> tested | Not started | No game run. Conditions in `TESTING.md` (no `@wip`, every conditional scenario run, no manual test left) |
+
