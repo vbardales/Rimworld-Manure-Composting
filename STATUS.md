@@ -8,7 +8,7 @@ packageId:    nelim.manurecomposting
 repo:         Rimworld-Manure-Composting
 visibility:   public
 detached:     yes
-workflow_stage: playTests[1.0.0]
+workflow_stage: shootGallery[1.0.0]
 licence:      open
 licence_at:   MIT for own implementation and artwork; runtime dependencies are not redistributed
 upstream_mod_remotes:
@@ -20,10 +20,10 @@ workshop:     3806768526 (private item "Manure Composting", visibility hidden, p
 remaining:
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-26, Burn It for Fuel integration removed (deprecated); French line re-read and validated; stage unchanged
+updated:      2026-10-26, code review done on d1b79cdb..eb6ec38a6ff935237df5d0208038be710ed3b089 (Opus sub-agent: no defect); stage shootGallery
 protocols_read_sha: 43dd90d4b7873c500347fba1be01275a48d5795b
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
-code_review_sha: d1b79cdbffb23d23c9e26883d72ec3fe7bb2950a
+code_review_sha: eb6ec38a6ff935237df5d0208038be710ed3b089
 ---
 
 
@@ -33,7 +33,7 @@ Kept at the root, never inside `Mod/`, so Steam never receives it. Maintained by
 
 ## Where it stands
 
-`workflow_stage` is `playTests[1.0.0]`. Virginie validated the French and the English on 2026-10-15 (`je valide`, no correction, verbs unchanged: "gâcher" kept), so 7.g is met and `translation_fr` and `translation_en` are `complete`. Earlier replay of the audit (2026-10-15) had held the stage at `writeTests` for that reason only. The three Pickle passes are green on `f4af871` (`docs/runs/2026-10-14.md`, captures opened), the code review (8.m) is done, the Burn It for Fuel point is justified in `TESTING.md`. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public). A private Workshop item exists (`0.1.0`); `1.0.0` stays unreleased above it in the CHANGELOG.
+`workflow_stage` is `shootGallery[1.0.0]` (left `playTests` 2026-10-26: Burn It for Fuel dropped, code review clean, the three Pickle passes of 2026-10-14 kept as proof, the removal touching only an optional patch no pass exercised). Virginie validated the French and the English on 2026-10-15 (`je valide`, no correction, verbs unchanged: "gâcher" kept), so 7.g is met and `translation_fr` and `translation_en` are `complete`. Earlier replay of the audit (2026-10-15) had held the stage at `writeTests` for that reason only. The three Pickle passes are green on `f4af871` (`docs/runs/2026-10-14.md`, captures opened), the code review (8.m) is done, the Burn It for Fuel point is justified in `TESTING.md`. The repository is standalone (`origin` is `https://github.com/vbardales/Rimworld-Manure-Composting`, public). A private Workshop item exists (`0.1.0`); `1.0.0` stays unreleased above it in the CHANGELOG.
 
 Burn It for Fuel integration removed 2026-10-26 (owner: the mod is deprecated): patch, `loadAfter` entries, feature 05, pass map and offline checks deleted. 8.f has nothing left open. Next: code review (8.m, reopened by the `Mod/` change), then `shootGallery` (gallery not started, plan in `PUBLICATION.md`).
 
