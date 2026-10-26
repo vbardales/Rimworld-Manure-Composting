@@ -84,10 +84,6 @@ Named by def, never by mod display name, and each guarded so an absent target co
 
 - **Fertile Fields** — Workshop `3225843229`, packageId `jamaicancastle.RF.fertilefields`, 1.6.
   Its `MakeCompost` and `MakeCompost5` recipes are extended to accept manure.
-- **[JPT] Burn It for Fuel** — Workshop `1823276856`, packageId `JPT.BurnItForFuel`. Declares
-  `1.1, 1.2, 1.3` and **cannot load in 1.6**; no continuation is installed. The patch is kept
-  because it is guarded on the def and will start working by itself if a 1.6 continuation appears
-  keeping the `BurnItForFuel` defName. Until then it does nothing, by design.
 
 ## Removal
 

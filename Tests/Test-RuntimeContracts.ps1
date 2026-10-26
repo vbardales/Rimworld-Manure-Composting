@@ -57,19 +57,6 @@ foreach($recipe in 'MakeCompost','MakeCompost5'){
  Assert ($present.SelectNodes("Defs/RecipeDef[defName='$recipe']/defaultIngredientFilter/thingDefs/li[text()='DryManure']").Count -eq 1) "$recipe defaults to dried manure"
  Assert ($present.SelectNodes("Defs/RecipeDef[defName='$recipe']/defaultIngredientFilter/thingDefs/li[text()='Manure']").Count -eq 0) "$recipe does not default to fresh manure"
 }
-[xml]$partial='<Defs><ThingDef><defName>BurnItForFuel</defName><building><fixedStorageSettings><filter/></fixedStorageSettings></building></ThingDef></Defs>'
-Apply-Patches $partial
-Assert ($partial.SelectNodes('//thingDefs').Count -eq 0) 'Incomplete optional filter is safely skipped'
-[xml]$burn='<Defs><ThingDef><defName>BurnItForFuel</defName><building><fixedStorageSettings><filter><thingDefs><li>WoodLog</li></thingDefs></filter></fixedStorageSettings></building></ThingDef></Defs>'
-Apply-Patches $burn
-Assert ($burn.SelectNodes('//thingDefs/li[text()="DryManure"]').Count -eq 1) 'Compatible optional burner receives dried manure'
-# The real def of "Burn It for Fuel 2" (Workshop 3553442151, 1.6), when installed: the patch must land in its filter.
-$realBurn="$Workshop/3553442151/Defs/Things.xml"
-if(Test-Path $realBurn){
- [xml]$real=Get-Content $realBurn -Raw -Encoding UTF8
- Apply-Patches $real
- Assert ($real.SelectNodes('//ThingDef[defName="BurnItForFuel"]//thingDefs/li[text()="DryManure"]').Count -eq 1) 'Real Burn It for Fuel 2 def receives dried manure'
-}
 # Exercise the shipped WorkGivers against the actual game DefDatabase, outside a running map.
 $thingType=$game.GetType('Verse.ThingDef',$true)
 # A metadata-only Def avoids Unity texture creation; its name is the only field used here.

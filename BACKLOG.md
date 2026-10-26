@@ -33,12 +33,6 @@ Open work for this mod only.
 
 ## Dependencies, read on Steam 2026-09-28 in a browser
 
-- **Burn It for Fuel has two 1.6 successors, and the patch may aim at neither.** The installed `JPT.BurnItForFuel` (`1823276856`, obsolete, 1.1 to 1.3, needs HugsLib)
-  is the target of `Mod/Patches/BurnItForFuel.xml` and of a `loadAfter`. Mlie's "[Depricated] (Continued)" (`3004932466`, declares 1.6, needs Harmony and HugsLib) and jptrrs's
-  "Burn It for Fuel 2" (`3553442151`, 1.6, no dependency, a rewrite with a per-building fuel tab) are not installed here. Subscribe to both, read their defs, and decide
-  whether the patch targets a def that exists, whether `loadAfter` needs their packageIds, and whether the description and `ATTRIBUTION.md` (which say "no continuation is
-  installed") need the two named. Then add the live scenario. Any change touches `Mod/`, so it waits until the three queued tickets have finished. Source: GitHub
-  `jptrrs/BurnItForFuel`.
 - **Dubs Bad Hygiene** (`836308268`, Dubwise): alive, 1.6, updated 2025-07-21, and its descriptions give an issue tracker and releases at
   `github.com/Dubwise56/Dubs-Bad-Hygiene`. It is a hard dependency, not the origin of this mod, so no pull request rule applies. Its extension points named
   `ThingDefToCompost_PatchMe` and `ThingDefToProduce_PatchMe` are what this mod relies on; a change there is a reason to rerun the passes.
@@ -46,16 +40,6 @@ Open work for this mod only.
   (maintainer until 1.4) and Greysuki, and its licence asks only to be told about a derivative or basis. This mod is neither, but the thank-you comment at
   `prepublished` credits all three, in one message on this page. The installed packageId is `jamaicancastle.RF.fertilefields`, unchanged by the continuation.
   Its known issues list Odyssey terrain as unsupported, which this mod does not touch.
-
-## Burn It for Fuel, read from source on 2026-10-13 (GitHub, not the installed Workshop copies)
-
-- Both 1.6 successors keep the def `BurnItForFuel` with `building/fixedStorageSettings/filter/thingDefs`, so `Mod/Patches/BurnItForFuel.xml` matches in both: `jptrrs/BurnItForFuel` (`Defs/Things.xml`, packageId `JPT.BurnItForFuel`, `supportedVersions` 1.6 only, needs Harmony) and `emipa606/JPTBurnItForFuel` (Mlie's continuation, root `Defs/Things.xml` with `WoodLog` and `Chemfuel`, packageId `Mlie.JPTBurnItForFuel`, declares 1.1 to 1.6, deprecated).
-- `loadAfter` names only `JPT.BurnItForFuel`. With Mlie's `Mlie.JPTBurnItForFuel` loaded, load order is not guaranteed, and a patch that runs before the def exists is skipped silently. Proposed change: add `Mlie.JPTBurnItForFuel` to `loadAfter` in `Mod/About/About.xml` (a `Mod/` commit, so it reopens 8.m and `playTests`).
-- Still unverified in game: neither successor was loaded. The live scenario is not written.
-
-## Burn It for Fuel, live run of 2026-10-14
-
-- The Pickle scenario `05-burn-it-for-fuel` failed (`no def named 'BurnItForFuel'`) and was deleted: "Burn It for Fuel 2" removes that def at startup (`Initializer.SetDefaultFuels`). The offline contracts now apply the patch to its real `Things.xml`. Open question for the owner: accept this as the evidence for 8.f, or check by hand in a game that the burner lists dried manure among its default fuels (needs `ValidateAsFuel` to pass for `DryManure`).
 
 ## Gallery (shootGallery)
 

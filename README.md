@@ -25,8 +25,7 @@ Load after Manure and DBH, and after Fertile Fields when used. Manure declares i
 Harmony dependency. RIMMSQOL and other customization tools are not required: this mod
 has no independent settings, empty settings page or main-button shortcut.
 
-Patches guard their target XPath. The optional Burn It for Fuel patch is tested with a
-synthetic compatible target; no live 1.6 continuation is claimed as tested. The mod does
+Patches guard their target XPath. The mod does
 not duplicate Manure's fuel or chemfuel recipes and does not bypass the composter by adding
 manure to Fertile Fields' biosolids-to-fertilizer recipe.
 

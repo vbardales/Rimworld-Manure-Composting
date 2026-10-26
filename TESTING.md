@@ -9,7 +9,7 @@ their reports were read and their `@review` captures were opened.
 
 | Level | Where | Covers |
 | --- | --- | --- |
-| Patch and WorkGiver contracts | `Tests/Test-RuntimeContracts.ps1` | The real patch operations of the game applied to the installed DBH, Burok and Fertile Fields defs (with and without the optional targets, and against incomplete ones); the two WorkGivers scanning and caching the registered def. No pawn, no map. |
+| Patch and WorkGiver contracts | `Tests/Test-RuntimeContracts.ps1` | The real patch operations of the game applied to the installed DBH, Burok and Fertile Fields defs (with and without the optional targets); the two WorkGivers scanning and caching the registered def. No pawn, no map. |
 | Text adapter | `Tests/Test-TextAdapter.ps1`, `Tests/TextAdapterTests.cs` | The building subclass against a minimal DBH/Verse test double: quantities, untouched lines, finished and minified states, gizmo identity, order and action. |
 | Packaging and localization | `Tests/test_resources.py` | XML syntax; every owned and reused translation key in English and French; placeholders and DefInjected targets; metadata; images; licence copies; **no settings class, no `MainButtonDef`, no declared incompatibility** (which is the evidence for `settings_audit: not_applicable`). |
 | XML checkers | the collection's `scripts/Check-XmlFields.ps1`, `Check-XmlClasses.ps1`, `Check-DefRefs.ps1`, `Check-DefInjected.ps1` | Unknown fields, unresolved classes, unresolved def references, DefInjected paths. |
@@ -43,7 +43,6 @@ These rows of `TEST_SCENARIOS.md` end as *not applicable*, each with its reason,
   save has ever held another version. Nothing to upgrade from.
 - **A real restart between a write and a read.** The mod owns no serialized field; the two it saves are DBH's, and scenario `02`
   reloads them in process. A restart would add nothing the mod owns.
-- **Burn It for Fuel.** Not playable in Gherkin, by construction. "Burn It for Fuel 2" (`3553442151`, 1.6; the older `1823276856` is 1.1 to 1.3 and cannot load) reads the filter of its def `BurnItForFuel` at startup to set its default fuels, then removes that def from the `DefDatabase` (`Initializer.SetDefaultFuels`, decompiled 2026-10-15). A run on 2026-10-14 (ticket `20261014-165105-537-d7a7`, `dae69e7`) loaded the mod and failed with `no def named 'BurnItForFuel' in any database`: no step can see the def or its patch in a live game. What is proven instead, offline: `Tests/Test-RuntimeContracts.ps1` applies the real patch engine to the real `Things.xml` of `3553442151` and finds `DryManure` in the filter (and to a synthetic def, and to an incomplete one). That the burner then offers dried manure as a default fuel depends on the mod's `ValidateAsFuel`, not on this patch: **unverified in game**. Mlie's continuation (`3004932466`) is not installed and not tested.
 - **Settings, MainButtons shortcut, RIMMSQOL.** The mod has none (offline check above): no page, no shortcut, no integration to claim.
 - **DLC absent, declared incompatibility.** The mod uses no DLC and declares no `incompatibleWith`.
 

@@ -69,7 +69,5 @@ Burok for Manure, which does the simulation this builds on. Dubwise for Dubs Bad
     <li>Dubwise.DubsBadHygiene</li>
     <li>Burok.Manure</li>
     <li>jamaicancastle.RF.fertilefields</li>
-    <li>JPT.BurnItForFuel</li>
-    <li>Mlie.JPTBurnItForFuel</li>
   </loadAfter>
 </ModMetaData>

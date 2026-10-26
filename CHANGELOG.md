@@ -27,9 +27,6 @@ Never released, so these were folded into 1.0.0 (an earlier draft of this file l
 - **Fertile Fields**: `MakeCompost` and `MakeCompost5` accept `Manure` and `DryManure`. Dried
   manure is ticked in `defaultIngredientFilter`; fresh is not, so a standing bill does not quietly
   compete with the composter for the same input.
-- **[JPT] Burn It for Fuel**: `DryManure` added to the burner's storage filter. Inert today — that
-  mod stops at 1.3 — but guarded on the def, so it starts working if a 1.6 continuation keeps the
-  `BurnItForFuel` defName.
 
 ### Notes on the shape
 
