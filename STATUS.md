@@ -52,6 +52,20 @@ On `6a90b1b` plus `104c596` (clean tree, protocols at `e733386`). Protocols read
 | 7 writeTests | Validated (7.g met 2026-10-15) | 7.a `TEST_SCENARIOS.md` (the -18 and 58 degree margin is DBH's `minSafe + 2` and `maxSafe - 2`, checked in `WorkGiver_FillComposter`); 7.b to 7.f replayed: `Test-RuntimeContracts.ps1` 46/46, `Test-TextAdapter.ps1` 20/20, `test_resources.py` 91/91, `Check-Steps.ps1` 62 step lines. 7.g: French and English read by Virginie, no correction |
 | 8 playTests | Evidence kept, not claimed | Passes `minimal-en`, `minimal-fr`, `avec-fertilefields` green on `f4af871`, captures opened. Burn It for Fuel cannot be played (the mod removes its own def at startup, ticket `20261014-165105-537-d7a7`); proved offline against the real `Things.xml`. Code review done (`code_review_sha`) |
 
+## Shotlist (2026-10-26, nothing played)
+
+Full lines and story: header of . Story k: two days at the barn, Nelim alone (NSB), same work shirt, opening wide barn shot, closing wide garden shot, medium and tight between: k met, no point lost. Opus director pass kept: two-day rhythm (subtitle 5 matches), forced jobs paused mid-gesture instead of poses, composter in the background of 1, no thrumbo in the enclosure, one zoom for 7, dogs walking not posing; dropped: none. Interface shots 2 and 6 and their missing steps are set aside from the score.
+
+| Scene | a time | b decor | c living | d pawns | e mid-play instant | f composition | g subject | j mod | est | main risk |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 barn-dawn | barn, d1 06:00, Clear | Hay, TorchLamp lit, manure stacks, composter | Clover facing S eating, 2 sheep | Nelim ochre shirt, ponytail, smirk | milking forced, 60 ticks, pause | zoom 8.5 wide, off-centre | the barn leaves a mark | composter in corner | 4.5 | Milk job on cow, cells in barn |
+| 3 hauling | enclosure-south, d1 09:30 | fence, crate, manure heap | hen, nesting boxes | same | haul forced, 120 ticks, pause | zoom 12 medium | muck carried before it dries | composter at (146,214) | 4 | manure defName, cell (145,214) free |
+| 4 contents | enclosure-south, d1 12:00 | crate | hen | same | LoadComposter forced, pause | zoom 8, frame shifted for the panel | what it holds | gauge and inspect text | 4 | gauge unreadable at 268 px |
+| 5 biosolids | enclosure-south, d3 16:00 | Biosolids heap | Yuki walking, facing camera | same | UnloadComposter forced, first toil | zoom 8 medium/tight | rich fertiliser | composter and Biosolids | 4 | walking dog step, cells |
+| 7 garden | flower-garden, d3 18:30 | Plant_Daylily, roses, Biosolids heap | Shogun following, facing camera | same | haul Biosolids to the bed | zoom 9 wide | from muck to garden | Biosolids in frame | 4 | Plant_Rose defName, Shogun placement |
+
+Series estimate 4. Interface shots: 2 (Hygiene tab) needs a step to open the architect tab, 6 (Fertile Fields bill) needs a step to open the bill dialog: asked to NPT 2026-10-26, no answer yet. No ticket before the five scored scenes are written and their steps checked.
+
 ## Settings audit
 
 Date 2026-10-15, revision `6a90b1b`. Result `not_applicable`. Source inspection of both C# files, the project and all Defs and patches: no `Verse.Mod` subclass, no `ModSettings`, no `MainButtonDef`. The adapter only overrides the scan target of two WorkGivers and corrects two inherited texts. Gameplay choices already exist (build the composter or let manure dry; Fertile Fields bill ingredients). Executable proof: `Tests/test_resources.py` ("no settings class", "no `MainButtonDef`"). Nothing was played in game: no settings, so no in-game check is owed.
