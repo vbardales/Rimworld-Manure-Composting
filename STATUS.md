@@ -54,7 +54,7 @@ On `6a90b1b` plus `104c596` (clean tree, protocols at `e733386`). Protocols read
 
 ## Shotlist (2026-10-26, nothing played)
 
-Full lines and story: header of . Story k: two days at the barn, Nelim alone (NSB), same work shirt, opening wide barn shot, closing wide garden shot, medium and tight between: k met, no point lost. Opus director pass kept: two-day rhythm (subtitle 5 matches), forced jobs paused mid-gesture instead of poses, composter in the background of 1, no thrumbo in the enclosure, one zoom for 7, dogs walking not posing; dropped: none. Interface shots 2 and 6 and their missing steps are set aside from the score.
+Full lines and story: header of `Tests/Pickle/Mod/Pickle/Features/05-gallery.feature`. Story k: two days at the barn, Nelim alone (NSB), same work shirt, opening wide barn shot, closing wide garden shot, medium and tight between: k met, no point lost. Opus director pass kept: two-day rhythm (subtitle 5 matches), forced jobs paused mid-gesture instead of poses, composter in the background of 1, no thrumbo in the enclosure, one zoom for 7, dogs walking not posing; dropped: none. Interface shots 2 and 6 and their missing steps are set aside from the score.
 
 | Scene | a time | b decor | c living | d pawns | e mid-play instant | f composition | g subject | j mod | est | main risk |
 |---|---|---|---|---|---|---|---|---|---|---|
