@@ -7,8 +7,8 @@
 # biosolids go to the flower garden. Rhythm: one `I set the hour to N` per scene, the day change is written in
 # the subtitle ("Two days on"), never played. The composter's home is one place on purpose (enclosure-south,
 # the pen the animals live in); the zoom changes from shot to shot (wide, medium, close, medium-tight, wide).
-# One scene = one Scenario = one image. Paused mid-play: each gesture is a forced job followed by
-# `I let N ticks pass` then `time is paused for the capture`. Every prop, heap and stand-in animal below is
+# One scene = one Scenario = one image. Paused mid-play: each gesture is a forced job, with `game speed is paused` set in the setup, then
+# `I advance the paused game by exactly N ticks` (the game stays paused). Every prop, heap and stand-in animal below is
 # removed after its shot (`the decor is removed`), and each Scenario reloads the save.
 #
 # 1 workshop-1-pen-dawn      enclosure-south (149,214) zoom 9 wide, day 1 06:00 Clear, dawn light. Foreground: cow
@@ -19,7 +19,7 @@
 #                            nesting boxes. Subject off-centre right. Says: the pen leaves a mark, the answer stands
 #                            at the gate. Subtitle "Dawn at the pen: the animals have already left their mark."
 # 2 workshop-2-hygiene-tab   interface capture (no subtitle, not rated): Hygiene architect tab open on the
-#                            dropdown holding both composters. Needs a step to open the architect tab (asked to NPT).
+#                            dropdown holding both composters. Step: `Nelim's Pickle Tools: I open the architect tab "Hygiene"` (NPT, 2026-10-26, unplayed).
 # 3 workshop-3-hauling       enclosure-south, zoom 7 medium, day 1 09:30 Clear, bright side light. Instant: two steps
 #                            from the bin, about to tip. Nelim forced to haul 30 of the Burok manure def to (145,214),
 #                            120 ticks, pause; the composter fills the right third; hen "Pecky" in the foreground
@@ -40,7 +40,7 @@
 #                            Subtitle "Two days on, the box gives back dark, rich fertiliser."
 # 6 workshop-6-fertile-fields-bill   interface window (no subtitle, not rated): window-backdrop-for-height,
 #                            cropped, the Fertile Fields "make raw compost" bill with Manure and DryManure in the
-#                            ingredient list. Needs a step to open the bill dialog (asked to NPT).
+#                            ingredient list. Steps: add the bill with `the building "<def>" at (x, z) has the bill "<recipe>"`, then `I open the configuration of the bill "<RecipeDef>" on the building "<def>" at (x, z)` (NPT, 2026-10-26, unplayed).
 # 7 workshop-7-garden        flower-garden (154,105) zoom 9 wide, day 3 18:30 golden hour, closing image. Instant:
 #                            Nelim sets the last sack of Biosolids down at the bed, forced to haul 30 `Biosolids`
 #                            to the bed cell. Foreground right: the Biosolids heap, a third of the frame; the bed with

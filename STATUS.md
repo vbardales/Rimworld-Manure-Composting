@@ -64,7 +64,7 @@ Full lines and story: header of `Tests/Pickle/Mod/Pickle/Features/05-gallery.fea
 | 5 biosolids | enclosure-south, d3 16:00 | Biosolids heap, PlantPot daylily, removed | Yuki walking, facing camera | same | UnloadComposter forced, first toil | zoom 6 medium-tight | rich fertiliser | composter and heap | 4.5 | walking-dog step, cells |
 | 7 garden | flower-garden, d3 18:30 | Biosolids heap foreground right, daylily, roses, removed | Shogun walking toward camera, plants | same | haul Biosolids to the bed | zoom 9 wide, closing | from muck to garden | heap a third of the frame | 4.5 | Plant_Rose defName, Shogun placement |
 
-k (series): ok, one story, opening and closing shots, wide, medium, close and tight shots, rhythm moves on. Series estimate 4.5, to be re-rated by `rate-gallery`. Interface shots: 2 (Hygiene tab) needs a step to open the architect tab, 6 (Fertile Fields bill) needs a step to open the bill dialog: asked to NPT 2026-10-26, no answer yet. No ticket before the five scored scenes are written and their steps checked.
+k (series): ok, one story, opening and closing shots, wide, medium, close and tight shots, rhythm moves on. Series estimate 4.5, to be re-rated by `rate-gallery`. Interface shots: NPT answered yes 2026-10-26 (commit 9d04474 of PickleTools, unplayed): `I open the architect tab "Hygiene"` for 2, `I open the configuration of the bill ...` for 6. Each is played once in a small ticket first. Gestures: `game speed is paused` then `I advance the paused game by exactly N ticks`. No ticket before the five scored scenes are written and their steps checked.
 
 ## Settings audit
 
