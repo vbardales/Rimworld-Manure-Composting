@@ -46,8 +46,8 @@
 #                            to the bed cell. Foreground right: the Biosolids heap, a third of the frame; the bed with
 #                            `Plant_Daylily` and roses fully grown (`Plant_Rose` to verify), all removed after the
 #                            shot. Shogun (labrador) follows her, walking toward the camera, left. Says: from muck
-#                            to garden. Subtitle "From muck to garden: the first flowers grow on the barn's own
-#                            fertiliser." (the subtitle says "the pen's own fertiliser")
+#                            to garden. Subtitle "From muck to garden: the first flowers grow on the pen's own
+#                            fertiliser."
 #
 # DepMap: the Sanctuary map as base, plus Burok.Manure 3784198780, Dubwise.DubsBadHygiene 836308268,
 # jamaicancastle.RF.fertilefields 3225843229, nelim.manurecomposting.pickletests.
