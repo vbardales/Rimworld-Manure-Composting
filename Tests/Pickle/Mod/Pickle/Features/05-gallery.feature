@@ -20,7 +20,7 @@
 #                            at the gate. Subtitle "Dawn at the pen: the animals have already left their mark."
 # 2 workshop-2-hygiene-tab   interface capture (no subtitle, not rated): Hygiene architect tab open on the
 #                            dropdown holding both composters. Step: `Nelim's Pickle Tools: I open the architect tab "Hygiene"` (NPT, 2026-10-26, unplayed).
-# 3 workshop-3-hauling       enclosure-south, zoom 7 medium, day 1 09:30 Clear, bright side light. Instant: two steps
+# 3 workshop-3-hauling       enclosure-south, zoom 7 medium, day 1 09:00 Clear, bright side light. Instant: two steps
 #                            from the bin, about to tip. Nelim forced to haul 30 of the Burok manure def to (145,214),
 #                            120 ticks, pause; the composter fills the right third; hen "Pecky" in the foreground
 #                            left, `Stool` and a `Hay` bale as props, 30 manure on the ground behind her (all removed
@@ -41,7 +41,7 @@
 # 6 workshop-6-fertile-fields-bill   interface window (no subtitle, not rated): window-backdrop-for-height,
 #                            cropped, the Fertile Fields "make raw compost" bill with Manure and DryManure in the
 #                            ingredient list. Steps: add the bill with `the building "<def>" at (x, z) has the bill "<recipe>"`, then `I open the configuration of the bill "<RecipeDef>" on the building "<def>" at (x, z)` (NPT, 2026-10-26, unplayed).
-# 7 workshop-7-garden        flower-garden (154,105) zoom 9 wide, day 3 18:30 golden hour, closing image. Instant:
+# 7 workshop-7-garden        flower-garden (154,105) zoom 9 wide, day 3 18:00 golden hour, closing image. Instant:
 #                            Nelim sets the last sack of Biosolids down at the bed, forced to haul 30 `Biosolids`
 #                            to the bed cell. Foreground right: the Biosolids heap, a third of the frame; the bed with
 #                            `Plant_Daylily` and roses fully grown (`Plant_Rose` to verify), all removed after the
@@ -54,4 +54,216 @@
 # Colonists: Nelim only (NSB). No other colonist without the owner's express, reasoned approval.
 # Animals: Clover (cow), two sheep, hen, Shogun, Yuki: fixture animals first, spawn named stand-ins only if
 # the fixture ones cannot be placed. Dressing: none (the dogs keep their leather collar).
+@review @timeout:1800 @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.screenshotstudio @requires:nelim.pickletools.camerazoom @requires:nelim.pickletools.stagedecor @requires:Burok.Manure @requires:jamaicancastle.RF.fertilefields
+@review @timeout:1800 @requires:nelim.pickletools.colonistrace @requires:nelim.pickletools.clickdiagnostics @requires:nelim.pickletools.screenshotstudio @requires:nelim.pickletools.camerazoom @requires:nelim.pickletools.stagedecor @requires:Burok.Manure @requires:jamaicancastle.RF.fertilefields
 Feature: Manure Composting - gallery
+
+  Background:
+    Given the save "Nelims-tribe" is loaded
+    And game speed is paused
+    And Nelim's Pickle Tools: the temperature of the map is 20 degrees
+    And Nelim's Pickle Tools: the eclipse of the map is ended
+    And Nelim's Pickle Tools: all filth is cleaned
+    And Nelim's Pickle Tools: all humans but "Nelim" are removed
+    And I set the weather to "Clear"
+
+  Scenario: gallery-1-pen-dawn
+    Given I set the hour to 6
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the tooltips are hidden
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the selection brackets are hidden
+    And Nelim's Pickle Tools: I move the mouse to (10, 10)
+    And the temperature at (146, 214) is above 0
+    And a "Nelim_ManureComposter" is built at (146, 214)
+    And Nelim's Pickle Tools: I place the decor "TorchLamp" at (157, 208)
+    And Nelim's Pickle Tools: the decor "TorchLamp" at (157, 208) is lit
+    And Nelim's Pickle Tools: I place the decor "Hay" at (150, 216)
+    And Manure Composting: 12 manure lies at (143, 211)
+    And Manure Composting: 12 manure lies at (145, 210)
+    And Manure Composting: 12 manure lies at (151, 211)
+    And Manure Composting: 12 manure lies at (153, 213)
+    And Nelim's Pickle Tools: an adult animal of kind "Cow" named "Clover" is spawned at (149, 216)
+    And Nelim's Pickle Tools: an adult animal of kind "Sheep" named "Dot" is spawned at (153, 218)
+    And Nelim's Pickle Tools: an adult animal of kind "Sheep" named "Pip" is spawned at (155, 217)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (205, 150, 60)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (110, 76, 48)
+    And Nelim's Pickle Tools: "Nelim" stands at (148, 215) facing East
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" face tattoo is "none"
+    And Nelim's Pickle Tools: "Nelim" body tattoo is "Body_Heart"
+    And Nelim's Pickle Tools: "Nelim" face kit is "smile"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
+    And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
+    And Nelim's Pickle Tools: the animal "Clover" stands at (149, 216) facing South
+    And Nelim's Pickle Tools: "Nelim" is forced into the job "Milk" on "Clover"
+    And Nelim's Pickle Tools: I advance the paused game by exactly 60 ticks
+    And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 9
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 1 pen dawn"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-2-hygiene-tab
+    Given I set the hour to 7
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: I open the architect tab "Hygiene"
+    And Nelim's Pickle Tools: I frame the cell (146, 214) at zoom 9
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 2 hygiene tab"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-3-hauling
+    Given I set the hour to 9
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the tooltips are hidden
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the selection brackets are hidden
+    And Nelim's Pickle Tools: I move the mouse to (10, 10)
+    And the temperature at (146, 214) is above 0
+    And a "Nelim_ManureComposter" is built at (146, 214)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (141, 216)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (150, 212)
+    And Manure Composting: 30 manure lies at (138, 214)
+    And Nelim's Pickle Tools: an adult animal of kind "Chicken" named "Pecky" is spawned at (143, 217)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (205, 150, 60)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (110, 76, 48)
+    And Nelim's Pickle Tools: "Nelim" stands at (139, 214) facing East
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" face tattoo is "none"
+    And Nelim's Pickle Tools: "Nelim" body tattoo is "Body_Heart"
+    And Nelim's Pickle Tools: "Nelim" face kit is "smile"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
+    And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
+    And Nelim's Pickle Tools: "Nelim" is forced to haul 30 of the item "Manure" to (145, 214)
+    And Nelim's Pickle Tools: I advance the paused game by exactly 120 ticks
+    And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 7
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 3 hauling"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-4-contents
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the tooltips are hidden
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the selection brackets are hidden
+    And Nelim's Pickle Tools: I move the mouse to (10, 10)
+    And the temperature at (146, 214) is above 0
+    And a "Nelim_ManureComposter" is built at (146, 214)
+    And Manure Composting: 30 manure lies at (144, 214)
+    And Nelim's Pickle Tools: I place the decor "Hay" at (150, 212)
+    And Nelim's Pickle Tools: I place the decor "Stool" at (141, 216)
+    And Nelim's Pickle Tools: an adult animal of kind "Chicken" named "Pecky" is spawned at (148, 217)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (205, 150, 60)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (110, 76, 48)
+    And Nelim's Pickle Tools: "Nelim" stands at (144, 215) facing North
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" face tattoo is "none"
+    And Nelim's Pickle Tools: "Nelim" body tattoo is "Body_Heart"
+    And Nelim's Pickle Tools: "Nelim" face kit is "smile"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
+    And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
+    And Nelim's Pickle Tools: "Nelim" is forced into the job "LoadComposter" on the building "Nelim_ManureComposter" at (146, 214)
+    And Nelim's Pickle Tools: I advance the paused game by exactly 60 ticks
+    And Manure Composting: I select the composter at (146, 214) and look at it
+    And Nelim's Pickle Tools: I frame the cell (146, 214) at zoom 4
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 4 contents"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-5-biosolids
+    Given I set the hour to 16
+    And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the tooltips are hidden
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the selection brackets are hidden
+    And Nelim's Pickle Tools: I move the mouse to (10, 10)
+    And the temperature at (146, 214) is above 0
+    And a "Nelim_ManureComposter" is built at (146, 214)
+    And Manure Composting: 30 manure lies at (144, 214)
+    And Manure Composting: the development control finishes the composter at (146, 214)
+    And Nelim's Pickle Tools: I place the decor "PlantPot" at (141, 212)
+    And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (141, 212) fully grown
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (148, 212)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (205, 150, 60)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (110, 76, 48)
+    And Nelim's Pickle Tools: "Nelim" stands at (145, 215) facing East
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" face tattoo is "none"
+    And Nelim's Pickle Tools: "Nelim" body tattoo is "Body_Heart"
+    And Nelim's Pickle Tools: "Nelim" face kit is "smile"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
+    And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
+    And Nelim's Pickle Tools: the animal "Yuki" stands at (150, 216) facing South
+    And Nelim's Pickle Tools: "Nelim" is forced into the job "UnloadComposter" on the building "Nelim_ManureComposter" at (146, 214)
+    And Nelim's Pickle Tools: I advance the paused game by exactly 30 ticks
+    And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 6
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 5 biosolids"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-6-fertile-fields-bill
+    Given I set the hour to 12
+    And Nelim's Sanctuary: I am at the sanctuary "window-backdrop-for-height"
+    And a "CraftingSpot" is built at (90, 140)
+    And Nelim's Pickle Tools: the building "CraftingSpot" at (90, 140) has the bill "MakeCompost"
+    And Nelim's Pickle Tools: I open the configuration of the bill "MakeCompost" on the building "CraftingSpot" at (90, 140)
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 6 fertile fields bill"
+    And Nelim's Pickle Tools: the decor is removed
+
+  Scenario: gallery-7-garden
+    Given I set the hour to 18
+    And Nelim's Sanctuary: I am at the sanctuary "flower-garden"
+    And Nelim's Pickle Tools: studio presentation mode is enabled
+    And Nelim's Pickle Tools: the colonist bar is hidden
+    And Nelim's Pickle Tools: the learning helper is hidden
+    And Nelim's Pickle Tools: the tooltips are hidden
+    And Nelim's Pickle Tools: the resource readout is hidden
+    And Nelim's Pickle Tools: the selection brackets are hidden
+    And Nelim's Pickle Tools: I move the mouse to (10, 10)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_BasicShirt" dyed rgb (205, 150, 60)
+    And Nelim's Pickle Tools: "Nelim" wears "Apparel_Pants" dyed rgb (110, 76, 48)
+    And Nelim's Pickle Tools: "Nelim" stands at (152, 105) facing East
+    And Nelim's Pickle Tools: "Nelim" hairstyle is "Roo_HD_Hair_Highpony"
+    And Nelim's Pickle Tools: "Nelim" face tattoo is "none"
+    And Nelim's Pickle Tools: "Nelim" body tattoo is "Body_Heart"
+    And Nelim's Pickle Tools: "Nelim" face kit is "smile"
+    And Nelim's Pickle Tools: "Nelim" mouth is "MouthLipsSmirk"
+    And Nelim's Pickle Tools: "Nelim" brows are "BrowNormal"
+    And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
+    And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
+    And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (157, 104)
+    And Nelim's Pickle Tools: the plants from (150, 103) to (156, 108) are fully grown
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (150, 107) facing South
+    And Nelim's Pickle Tools: "Nelim" is forced to haul 30 of the item "Biosolids" to (155, 105)
+    And Nelim's Pickle Tools: I advance the paused game by exactly 30 ticks
+    And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 9
+    When Nelim's Pickle Tools: I let 5 frames pass
+    Then I take a screenshot "gallery 7 garden"
+    And Nelim's Pickle Tools: the decor is removed

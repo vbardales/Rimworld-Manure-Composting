@@ -17,7 +17,7 @@ The step assembly is committed under `Mod/Pickle/Assemblies/` because the stagin
 
 ```powershell
 dotnet build Tests/Pickle/Source/ManureComposting.PickleSteps.csproj -c Release
-powershell.exe -ExecutionPolicy Bypass -File Tests/Pickle/Check-Steps.ps1
+powershell.exe -ExecutionPolicy Bypass -File ../scripts/Check-Steps.ps1 -ModRoot .
 ```
 
 Play nothing from a session directly: file a request with `Rimworld-Ticket-Dispatcher\scripts\Submit-PickleRun.ps1` (commands in
