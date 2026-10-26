@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: partial
+translation_fr: complete
 settings_audit: not_applicable
 mod:          Manure Composting
 packageId:    nelim.manurecomposting
@@ -18,7 +18,6 @@ showcase:     complete
 tested_on:    2026-10-14 (Pickle, headless WSL, RimWorld 1.6, f4af871: minimal-en 5+1 skipped, minimal-fr 5+1 skipped, avec-fertilefields 1/1; `docs/runs/2026-10-14.md`)
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
-  - defect: French ThingDef description said "Installez-le" (vous imperative, forbidden since 2026-10-17, AUDIT.md 6.d); changed 2026-10-26 to "À installer dans un endroit tempéré." and `FRENCH_REVIEW.md` regenerated. Needs Virginie's re-read of that one line before `translation_fr` returns to `complete`.
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
   - unverified: Burn It for Fuel in a live game. The patch lands in the real def of "Burn It for Fuel 2" (3553442151), proved offline (46 contract checks). No Pickle scenario can see it: that mod removes its own `BurnItForFuel` def at startup (ticket `20261014-165105-537-d7a7` failed with "no def named", feature 05 deleted, reasoning in `TESTING.md`). Whether the burner then offers dried manure by default is the mod's own `ValidateAsFuel`, not checked. Mlie's continuation (3004932466) not installed.
 session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
@@ -60,7 +59,7 @@ Date 2026-10-15, revision `6a90b1b`. Result `not_applicable`. Source inspection 
 
 ## Translation audit
 
-Date 2026-10-15, revision `6a90b1b`. French lives in `Mod/Languages/French/Keyed/ManureComposting.xml` and four `DefInjected` files (`DesignatorDropdownGroupDef`, `ThingDef`, `WorkGiverDef`, `JobDef`); English is the Def values plus `Mod/Languages/English/Keyed/ManureComposting.xml`. The French `JobDef` file overrides two DBH report strings (`LoadComposter`, `UnloadComposter`), which also corrects DBH's own composter while this mod is loaded. Every French file was read in full: no text agrees with a pawn, nothing to flag. In game, `minimal-fr` showed correct accents and no raw key (2026-10-14). Review by Virginie: 2026-10-15, revision `ec6d814` (Mod/ unchanged since), French and English read from `FRENCH_REVIEW.md`, corrections requested: none. `FRENCH_REVIEW.md` is generated with `-ExtraDefs <DBH 1.6 Defs folder>` so the two DBH job reports show their English. Changed since the 2026-09-30 reading: the English words "fertiliser that sewage produces" and "a source of fertiliser" (ThingDef and About), 2026-10-14.
+Date 2026-10-15, revision `6a90b1b`. French lives in `Mod/Languages/French/Keyed/ManureComposting.xml` and four `DefInjected` files (`DesignatorDropdownGroupDef`, `ThingDef`, `WorkGiverDef`, `JobDef`); English is the Def values plus `Mod/Languages/English/Keyed/ManureComposting.xml`. The French `JobDef` file overrides two DBH report strings (`LoadComposter`, `UnloadComposter`), which also corrects DBH's own composter while this mod is loaded. Every French file was read in full: no text agrees with a pawn, nothing to flag. In game, `minimal-fr` showed correct accents and no raw key (2026-10-14). Review by Virginie: 2026-10-15, revision `ec6d814` (Mod/ unchanged since), French and English read from `FRENCH_REVIEW.md`, corrections requested: none. `FRENCH_REVIEW.md` is generated with `-ExtraDefs <DBH 1.6 Defs folder>` so the two DBH job reports show their English. Line re-read 2026-10-26, revision `30078bd` (Virginie validated): "Installez-le" became "À installer dans un endroit tempéré." (no vous imperative, AUDIT.md 6.d); ChatGPT review of the page found nothing to change. Changed since the 2026-09-30 reading: the English words "fertiliser that sewage produces" and "a source of fertiliser" (ThingDef and About), 2026-10-14.
 
 ## Dependencies
 
