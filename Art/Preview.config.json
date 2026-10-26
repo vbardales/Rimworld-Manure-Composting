@@ -1,53 +1,30 @@
 {
-  "title": "Manure Composting",
-  "titleSize": 46,
-  "titleParts": [
-    {
-      "text": "Manure"
-    },
-    {
-      "text": "Composting",
-      "breakBefore": true
-    }
-  ],
-  "suffix": "",
-  "tag": "",
-  "copyLines": [
-    "Turn fresh manure into biosolids.",
-    "Connect your barn to the soil."
-  ],
-  "layout": "panel",
-  "panelAnchor": "top-left",
-  "modIconSource": "ModIcon-source.png",
+  "panel": {
+    "title": "Manure Composting",
+    "titleSize": 46,
+    "titleParts": [
+      {
+        "text": "Manure"
+      },
+      {
+        "text": "Composting",
+        "breakBefore": true
+      }
+    ],
+    "copyLines": [
+      "Turn fresh manure into biosolids.",
+      "Connect your barn to the soil."
+    ]
+  },
   "backgroundFile": "Preview-source.png",
-  "backgroundPosition": "center",
-  "backgroundSize": "cover",
   "echo": {
     "file": "echo-preview.png",
-    "preSized": true,
-    "mode": "alpha",
     "color": "var(--accent)",
     "width": 170,
-    "height": 150,
-    "opacity": 1,
-    "veil": false,
-    "panelTop": 2,
-    "panelRight": 1,
-    "panelWidth": 33,
-    "flipX": true
+    "height": 150
   },
-  "iconBadge": {
-    "file": "ModIcon-source.png",
-    "corner": "bottom-left",
-    "width": 180,
-    "translate": "12%, -12%",
-    "rotate": 15,
-    "radius": 48,
-    "outline": false,
-    "veil": "radial",
-    "veilSize": 250,
-    "veilLeft": -45,
-    "veilBottom": -45
+  "icon": {
+    "file": "ModIcon-source.png"
   },
   "palette": {
     "veil": "#34465C",
