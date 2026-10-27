@@ -18,10 +18,10 @@ showcase:     complete
 tested_on:    2026-10-14 (Pickle, headless WSL, RimWorld 1.6, f4af871: minimal-en 5+1 skipped, minimal-fr 5+1 skipped, avec-fertilefields 1/1; `docs/runs/2026-10-14.md`)
 workshop:     3806768526 (private item "Manure Composting", visibility hidden, published 2026-09-23 16:46; opened on Steam 2026-09-28, description matches About.xml)
 remaining:
-  - feature: gallery tickets not filed yet: small tickets first (scenarios 1, 2, 6 use unplayed steps: NPT 9d04474 and the forced jobs), then the series; scenes 5 and 7 need Yuki and Shogun caught walking, not posed (no walking step found, ask NPT); open every capture, then reindex, subtitle, Preview echo. Pass map Tests/Pickle/wsl-deps.gallery.map, file with scripts/Submit-PickleRun.ps1 (skill file-pickle-ticket).
+  - feature: gallery. Small ticket 20261027-195914-328-4bd7 queued 2026-10-27 (scenarios 1, 2, 6, tree 06a831d, pass map wsl-deps.gallery.map, results in Tests/Pickle/Inbox/gallery-small-1): proves the NPT steps 9d04474 and the forced Milk job. Then the series (3, 4, 5, 7). Scenes 5 and 7 need Yuki and Shogun caught walking, not posed: NPT asked 2026-10-27 for a walking step, answer pending (SendMessage to NPT local_5c111699). Then open every capture, reindex, subtitle, Preview echo. Pass map Tests/Pickle/wsl-deps.gallery.map, file with scripts/Submit-PickleRun.ps1 (skill file-pickle-ticket).
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
-session:      local_7facb2b3-2446-47a5-8c7e-bc19fab7f494
-updated:      2026-10-26, code review done on d1b79cdb..eb6ec38a6ff935237df5d0208038be710ed3b089 (Opus sub-agent: no defect); stage shootGallery
+session:      local_ec541c58-b95e-425c-9f74-0f15cbcdbd65
+updated:      2026-10-27, small gallery ticket 20261027-195914-328-4bd7 filed; stage shootGallery
 protocols_read_sha: 43dd90d4b7873c500347fba1be01275a48d5795b
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
 code_review_sha: eb6ec38a6ff935237df5d0208038be710ed3b089
