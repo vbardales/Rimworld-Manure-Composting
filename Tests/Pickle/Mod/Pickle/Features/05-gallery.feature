@@ -218,9 +218,10 @@ Feature: Manure Composting - gallery
     And Nelim's Pickle Tools: "Nelim" lids are "LidCheerful"
     And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
-    And Nelim's Pickle Tools: the animal "Yuki" stands at (150, 216) facing South
+    And Nelim's Pickle Tools: the animal "Yuki" stands at (151, 212) facing South
+    And Nelim's Pickle Tools: "Yuki" is forced to walk to (151, 216)
     And Nelim's Pickle Tools: "Nelim" is forced into the job "UnloadComposter" on the building "Nelim_ManureComposter" at (146, 214)
-    And Nelim's Pickle Tools: I advance the paused game by exactly 30 ticks
+    And Nelim's Pickle Tools: I advance the paused game by exactly 40 ticks
     And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 6
     When Nelim's Pickle Tools: I let 5 frames pass
     Then I take a screenshot "gallery 5 biosolids"
@@ -260,9 +261,10 @@ Feature: Manure Composting - gallery
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
     And Nelim's Pickle Tools: I place the decor "Biosolids" at (157, 104)
     And Nelim's Pickle Tools: the plants from (150, 103) to (156, 108) are fully grown
-    And Nelim's Pickle Tools: the animal "Shogun" stands at (150, 107) facing South
+    And Nelim's Pickle Tools: the animal "Shogun" stands at (151, 105) facing South
+    And Nelim's Pickle Tools: "Shogun" is forced to walk to (151, 109)
     And Nelim's Pickle Tools: "Nelim" is forced to haul 30 of the item "Biosolids" to (155, 105)
-    And Nelim's Pickle Tools: I advance the paused game by exactly 30 ticks
+    And Nelim's Pickle Tools: I advance the paused game by exactly 40 ticks
     And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 9
     When Nelim's Pickle Tools: I let 5 frames pass
     Then I take a screenshot "gallery 7 garden"
