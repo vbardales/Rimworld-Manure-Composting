@@ -116,6 +116,7 @@ Feature: Manure Composting - gallery
     Given I set the hour to 7
     And Nelim's Sanctuary: I am at the sanctuary "enclosure-south"
     And Nelim's Pickle Tools: I open the architect tab "Hygiene"
+    And Nelim's Pickle Tools: I open the architect dropdown "Nelim_Composters"
     And Nelim's Pickle Tools: I frame the cell (146, 214) at zoom 9
     When Nelim's Pickle Tools: I let 5 frames pass
     Then I take a screenshot "gallery 2 hygiene tab"
