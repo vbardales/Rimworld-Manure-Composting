@@ -128,7 +128,7 @@ The latest run, on the delivered build, is written in [docs/runs/2026-09-28.md](
 ```powershell
 pwsh -NoProfile -File Tests/Test-RuntimeContracts.ps1
 pwsh -NoProfile -File Tests/Test-TextAdapter.ps1
-python Tests/test_resources.py
+uv run python Tests/test_resources.py
 ```
 
 Run each script in a fresh process: they load different test assemblies. The runtime scripts accept `-Workshop`; the first also accepts

@@ -1,4 +1,6 @@
-"""Packaging/localization checks. Uses installed dependency resources, never modifies them."""
+"""Exact values and fixtures of this mod that no shared check holds. Generic parts (XML parse, duplicate defNames,
+French coverage, line breaks, parameter tokens, source keys, PNG validity, licence copies) are run by
+scripts/Check-ModBasics.ps1 and scripts/Check-Translations.ps1. Uses installed dependency resources, never modifies them."""
 from pathlib import Path
 import re, struct, tarfile, xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
@@ -10,37 +12,15 @@ def check(ok,message):
     assert ok,message
     checks+=1
     print("PASS",message)
-def resources(folder):
-    result={}
-    for f in folder.rglob("*.xml"):
-        for e in ET.parse(f).getroot():
-            if not isinstance(e.tag,str):continue
-            check(e.tag not in result, f"unique resource {e.tag}")
-            check(bool(e.text and e.text.strip()), f"nonempty {e.tag}")
-            result[e.tag]=e.text
-    return result
-for f in (ROOT/"Mod").rglob("*.xml"): ET.parse(f)
-print("PASS all distributed XML parses")
-fr=resources(ROOT/"Mod/Languages/French/DefInjected")
-owned={}
+fr={}
+for f in (ROOT/"Mod/Languages/French/DefInjected").rglob("*.xml"):
+    for e in ET.parse(f).getroot():
+        if isinstance(e.tag,str):fr[e.tag]=e.text
+owned=0
 for f in (ROOT/"Mod/Defs").rglob("*.xml"):
     for d in ET.parse(f).getroot():
-        name=d.findtext("defName")
-        for field in ("label","description","verb","gerund"):
-            value=d.findtext(field)
-            if value:owned[f"{name}.{field}"]=value
-check(len(owned)==9,"nine owned Def fields inventoried")
-for key,value in owned.items():
-    check(key in fr, f"French covers {key}")
-    check(fr[key].count(r"\n")==value.count(r"\n"),f"line breaks match {key}")
-en=resources(ROOT/"Mod/Languages/English/Keyed")
-fk=resources(ROOT/"Mod/Languages/French/Keyed")
-check(set(en)==set(fk),"Keyed languages have identical coverage")
-for key in en:
-    check(re.findall(r"\{[^{}]+\}",en[key])==re.findall(r"\{[^{}]+\}",fk[key]),f"parameters match {key}")
-for f in (ROOT/"Source").glob("*.cs"):
-    for key in re.findall(r'"(MC_[^"]+)"\.Translate',f.read_text(encoding="utf-8-sig")):
-        check(key in en and key in fk,f"source key resolves {key}")
+        owned+=sum(1 for field in ("label","description","verb","gerund") if d.findtext(field))
+check(owned==9,"nine owned Def fields inventoried")
 # Explicitly traced dependency keys used by the inherited building and WorkGivers.
 keys=["ContainsCompost","ContainsFecalSludge","Composted","CompostingProgress","ComposterOutOfIdealTemperature","IdealCompostingTemperature","NoCompostingMaterial"]
 dep={}
@@ -74,11 +54,7 @@ check(about.findtext("description").rstrip().endswith(f"[url={url}]Source code o
 check(about.findtext("url")==url,"About URL matches description")
 for filename,size in [("ModIcon.png",(128,128)),("Preview.png",(896,504))]:
     data=(ROOT/"Mod/About"/filename).read_bytes()
-    check(data[:8]==b"\x89PNG\r\n\x1a\n",f"{filename} PNG signature")
     check(struct.unpack(">II",data[16:24])==size,f"{filename} dimensions")
-    check(len(data)<1000000,f"{filename} below 1 MB")
-for name in ["LICENSE","ATTRIBUTION.md"]:
-    check((ROOT/name).read_bytes()==(ROOT/"Mod"/name).read_bytes(),f"distributed {name} matches")
 check([p.name for p in (ROOT/"Mod/Assemblies").glob("*.dll")]==["ManureComposting.dll"],"no dependency DLL redistribution")
 # settings_audit: not_applicable. The mod exposes no settings page and no main-bar shortcut, so neither an empty
 # page nor a greyed or visible shortcut can exist. Source and definitions are scanned, not assumed.
@@ -87,5 +63,4 @@ check("MainButtonDef" not in distributed_xml,"no MainButtonDef in the distribute
 source_text="\n".join(f.read_text(encoding="utf-8") for f in (ROOT/"Source").glob("*.cs"))
 check(not re.search(r"\bModSettings\b|:\s*Mod\b|DoSettingsWindowContents|SettingsCategory",source_text),"no settings class or settings window in the source")
 check(about.find("incompatibleWith") is None,"no incompatibility is declared, so no incompatibility pass is owed")
-print(f"{checks} packaging and localization checks passed; no in-game display claim.")
-
+print(f"{checks} exact-value checks passed; no in-game display claim.")

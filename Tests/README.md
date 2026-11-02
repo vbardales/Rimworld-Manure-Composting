@@ -9,8 +9,8 @@ the offline part. Run each script in a fresh process (they load different test a
 - `pwsh -NoProfile -File Tests/Test-TextAdapter.ps1`: compiles the real building text adapter against a minimal DBH/Verse test double, using installed
   EN/FR strings. Checks quantities, preservation of unrelated text, completed/minified states, gizmo identity/order and action preservation. This is a
   unit test, not a substitute for the live DBH/UI.
-- `python Tests/test_resources.py`: XML syntax, owned and reused translation coverage, placeholders/targets, metadata, images, licence/attribution
-  copies, and the absence of a settings page, a `MainButtonDef` and a declared incompatibility. Standard library only.
+- `uv run python Tests/test_resources.py`: exact values only (generic XML, key coverage, parameter and licence-copy checks are the shared `Check-ModBasics` and `Check-Translations`): inherited key and job-target tokens, repository link, image sizes, single DLL,
+  and the absence of a settings page, a `MainButtonDef` and a declared incompatibility. Standard library only.
 
 The runtime scripts accept `-Workshop`; the first also accepts `-GameRoot`. The resource script's default paths are declared at the top. Dependency
 resources remain local and are not redistributed with the tests.
