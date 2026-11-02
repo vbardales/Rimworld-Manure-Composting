@@ -33,9 +33,11 @@
 #                            "Pecky" pecking in the lower right corner, `Hay` bale and `Stool` (removed after the
 #                            shot). Says: a full box of muck. No subtitle (inspect tab, interface).
 # 5 workshop-5-biosolids     enclosure-south, zoom 6 medium-tight, day 3 16:00 Clear, afternoon light. Composter
-#                            finished by the development control. Instant: first toil of the unload, Nelim forced
+#                            filled by a forced "LoadComposter" (300 ticks, asserted at 30 manure) then finished by the
+#                            development control. Instant: first toil of the unload, Nelim forced
 #                            into job "UnloadComposter", pause. Beside her a heap of `Biosolids`; Yuki (husky) walking
-#                            toward the heap, facing the camera, lower left; a `PlantPot` with `Plant_Daylily` fully
+#                            south toward the camera, facing it, right of Nelim (forced walk (151,212) to (151,216),
+#                            40 ticks), not toward the heap; a `PlantPot` with `Plant_Daylily` fully
 #                            grown at the gate hints at the garden (removed after the shot).
 #                            Subtitle "Two days on, the box gives back dark, rich fertiliser."
 # 6 workshop-6-fertile-fields-bill   interface window (no subtitle, not rated): window-backdrop-for-height,
@@ -102,6 +104,7 @@ Feature: Manure Composting - gallery
     And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
     And Nelim's Pickle Tools: the animal "Clover" stands at (149, 216) facing South
+    And Nelim's Pickle Tools: the animal "Clover" is ready for the job "Milk"
     And Nelim's Pickle Tools: "Nelim" is forced into the job "Milk" on "Clover"
     And Nelim's Pickle Tools: I advance the paused game by exactly 60 ticks
     And Nelim's Pickle Tools: the camera is centered on "Nelim" at root size 9
@@ -202,6 +205,10 @@ Feature: Manure Composting - gallery
     And the temperature at (146, 214) is above 0
     And a "Nelim_ManureComposter" is built at (146, 214)
     And Manure Composting: 30 manure lies at (144, 214)
+    And Nelim's Pickle Tools: "Nelim" stands at (145, 215) facing East
+    And Nelim's Pickle Tools: "Nelim" is forced into the job "LoadComposter" on the building "Nelim_ManureComposter" at (146, 214)
+    And Nelim's Pickle Tools: I advance the paused game by exactly 300 ticks
+    And Manure Composting: the composter at (146, 214) holds 30 manure
     And Manure Composting: the development control finishes the composter at (146, 214)
     And Nelim's Pickle Tools: I place the decor "PlantPot" at (141, 212)
     And Nelim's Pickle Tools: I place the decor "Plant_Daylily" at (141, 212) fully grown
@@ -230,9 +237,9 @@ Feature: Manure Composting - gallery
   Scenario: gallery-6-fertile-fields-bill
     Given I set the hour to 12
     And Nelim's Sanctuary: I am at the sanctuary "window-backdrop-for-height"
-    And a "CraftingSpot" is built at (90, 140)
-    And Nelim's Pickle Tools: the building "CraftingSpot" at (90, 140) has the bill "MakeCompost"
-    And Nelim's Pickle Tools: I open the configuration of the bill "MakeCompost" on the building "CraftingSpot" at (90, 140)
+    And a "TableButcher" is built at (90, 140)
+    And Nelim's Pickle Tools: the building "TableButcher" at (90, 140) has the bill "MakeCompost"
+    And Nelim's Pickle Tools: I open the configuration of the bill "MakeCompost" on the building "TableButcher" at (90, 140)
     When Nelim's Pickle Tools: I let 5 frames pass
     Then I take a screenshot "gallery 6 fertile fields bill"
     And Nelim's Pickle Tools: the decor is removed
@@ -260,6 +267,11 @@ Feature: Manure Composting - gallery
     And Nelim's Pickle Tools: "Nelim" eyeballs are "Swift"
     And Nelim's Pickle Tools: "Nelim" facial expression is "normal+moodCheerful2+blink"
     And Nelim's Pickle Tools: I place the decor "Biosolids" at (157, 104)
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (158, 104)
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (157, 105)
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (158, 105)
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (157, 103)
+    And Nelim's Pickle Tools: I place the decor "Biosolids" at (158, 103)
     And Nelim's Pickle Tools: the plants from (150, 103) to (156, 108) are fully grown
     And Nelim's Pickle Tools: the animal "Shogun" stands at (151, 105) facing South
     And Nelim's Pickle Tools: "Shogun" is forced to walk to (151, 109)
