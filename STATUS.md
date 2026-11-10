@@ -24,8 +24,8 @@ remaining:
   - note 2026-10-27: plan rated 4.8 (rate-gallery): 1 j weak, 5 f weak. To fix before the series: header of 5 (Yuki lower right, walking toward the camera, not toward the heap), header of 7 says 18:30 but feature plays 18:00, scene 4 has no subtitle (inspect tab is not an interface window). Owner rule: missing step goes to NPT, owner arbitrates a refusal; only NSB colonists unless the owner gives an explicit reasoned exemption.
   - unverified: avec-fertilefields re-run is green (2026-10-12, ticket 20261012-050740-030-23e9, label 74a817b, 1/1: both compost recipes patched by this mod); its Player.log was read, nothing traced to this mod (`Tests/Pickle/Evidence/2026-10-12-avec-fertilefields/log-check.txt`). That pass covers feature 04 only and has no @review capture, so there is nothing to open. Kept as a record until the next commit; no further action.
 session:      local_ec541c58-b95e-425c-9f74-0f15cbcdbd65
-updated:      2026-10-27, walking-animal ticket 20261027-200654-430-d3b4 filed; stage shootGallery
-protocols_read_sha: a03dcfe2525258107c98e3ce1ce32a486456d4c3
+updated:      2026-11-10, resume: protocols re-read, Preview re-rendered (new config schema); stage shootGallery
+protocols_read_sha: 14e4ae04adf39aa54fbc62a590a00173343a4067
 echo_review_sha: 6c0ddf93feeaa3ea6216d5f01fb5871fa9b125e4
 code_review_sha: eb6ec38a6ff935237df5d0208038be710ed3b089
 ---
